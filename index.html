@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitle">Calculadora de Tonalli - Sagrado Trece</title>
+    <link rel="stylesheet" href="styles.css"> {/* Link to your CSS */}
+</head>
+<body>
+    <div class="container">
+        <h1 data-key="mainTitle">Calculadora de Tonalli</h1>
+        <div class="controls">
+            <div id="lang-switcher" class="switcher">
+                <button id="lang-es" data-lang="es">Español</button>
+                <button id="lang-en" data-lang="en">English</button>
+            </div>
+            <div id="spelling-switcher" class="switcher">
+                <button id="spelling-ortho" data-spelling="ortho" data-key="spellingOrtho">Regular</button>
+                <button id="spelling-phonetic" data-spelling="phonetic" data-key="spellingPhonetic">Fonética</button>
+            </div>
+        </div>
+        <div class="intro">
+            <p data-key="intro1">Esta es una herramienta para convertir una fecha del calendario Gregoriano a un <strong>tonalli</strong> (signo y número) del Tonalpohualli.</p>
+            <p data-key="intro2">El método de cálculo se basa estrictamente en el procedimiento descrito en el <strong>Apéndice 5</strong> del libro <strong>"Sagrado Trece, los calendarios del antiguo México"</strong> de Frank Díaz.</p>
+            <p data-key="intro3_expanded"><strong>Nota:</strong> Para funcionar con cualquier fecha, esta calculadora extrapola los patrones cíclicos de las tablas del libro (que cubren de 1922 a 2077), manteniendo intacto el sistema de correlación original.</p>
+        </div>
+        <div class="calculator-mode-switcher">
+            <button id="mode-gregorian-to-tonalli" class="active" data-key="gregToTonalliMode">Gregoriano a Tonalli</button>
+            <button id="mode-tonalli-to-gregorian" data-key="tonalliToGregMode">Tonalli a Gregoriano</button>
+        </div>
+        <div id="gregorian-to-tonalli-calc">
+            <label for="gregorian-date" data-key="dateLabel">Selecciona una fecha:</label>
+            <div class="date-controls">
+                <input type="date" id="gregorian-date" name="gregorian-date">
+                <button id="today-btn" data-key="todayButton">Hoy</button>
+            </div>
+            <button id="calculate-btn" data-key="calculateButton">Calcular Tonalli</button>
+        </div>
+        <div id="tonalli-to-gregorian-calc">
+            <div class="input-group">
+                <label data-key="selectTonalliLabel">Selecciona un Tonalli:</label>
+                <div class="input-row">
+                    <select id="tonalli-number-input"></select>
+                    <select id="tonalli-sign-input"></select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label data-key="yearRangeLabel">Rango de Años para Buscar:</label>
+                <div class="input-row">
+                    <input type="number" id="start-year-input" placeholder="Año Inicio" min="1">
+                    <span data-key="yearRangeSeparator" style="margin: 0 5px;">a</span>
+                    <input type="number" id="end-year-input" placeholder="Año Fin" min="1">
+                </div>
+                 <small data-key="yearRangeNote" style="font-size:0.8em; color:#666;">(Rango pequeño recomendado, ej. 1-5 años)</small>
+            </div>
+            <button id="calculate-gregorian-btn" data-key="calculateGregorianButton">Buscar Fechas Gregorianas</button>
+            <div id="reverse-results-container" style="display:none;">
+                <h3 data-key="gregorianDatesFound">Fechas Gregorianas Encontradas:</h3>
+                <ul id="reverse-results-list"></ul>
+            </div>
+        </div>
+        <div id="result-container" style="display: none;">
+            <div class="result-section">
+                <h2 data-key="yearResultTitle">El Tonalli del Año es:</h2>
+                <div id="result-year-tonalli"></div>
+                <div id="result-year-tonalli-translations" class="translations"></div>
+            </div>
+            <div class="result-section">
+                <h2 data-key="dayResultTitle">El Tonalli del Día es:</h2>
+                <div id="result-day-tonalli-main">
+                    <img id="day-sign-glyph" src="" alt="Glifo del Día" style="display:none;">
+                    <div class="tonalli-name"></div>
+                </div>
+                <div id="result-day-tonalli-translations" class="translations"></div>
+            </div>
+            <div class="result-section">
+                <h3 data-key="tonalliMeaningTitle">Augurio del Tonalli del Día:</h3>
+                <div id="tonalli-meaning-text" class="info-block"></div> 
+            </div>
+            <div class="result-section"> 
+                <h2 data-key="trecenaTitle">Trecena</h2>
+                <div id="result-trecena"></div>
+                <div id="result-trecena-translations" class="translations"></div>
+            </div>
+            <div class="result-section">
+                <h2 data-key="newFireCycleTitle">Ciclo del Fuego Nuevo (Xiuhmolpilli)</h2>
+                <div id="new-fire-info" class="info-block">
+                    <div id="cycle-range-text"></div>
+                    <div id="next-ceremony-text" style="margin-top: 8px;"></div>
+                </div>
+            </div>
+            <div class="result-section">
+                <h2 data-key="legendOfSunsTitle">Leyenda de los Soles</h2>
+                <div class="info-block suns-info">
+                    <div id="days-from-suns-text"></div>
+                    <div id="fifth-sun-end-text" style="margin-top: 10px; font-weight: bold;"></div>
+                    <h4 data-key="sunsCalculationTitle">Base del Cálculo de los Soles:</h4>
+                    <div id="suns-calculation-explanation" style="font-size:0.8em; color:#666;"></div>
+                </div>
+            </div>
+            <div class="result-section">
+                <h2 data-key="xiuhpohualliTitle">Veintena del Xiuhpohualli</h2>
+                <div id="xiuhpohualli-veintena-name"></div>
+                <div id="xiuhpohualli-veintena-approx-gregorian"></div>
+                <div id="xiuhpohualli-veintena-day"></div>
+                <div id="xiuhpohualli-veintena-meaning" class="info-block"><p></p></div>
+            </div>
+        </div>
+        <p id="error-message" class="error-message" style="display:none;"></p>
+        <div class="footer">
+            <p data-key="footerText">Implementación digital basada en la obra de Frank Díaz. Creado como una herramienta de estudio y consulta.</p>
+        </div>
+    </div>
+
+    <!-- Crucial: Load tonalliMeanings.js first as calculator.js depends on it -->
+    <script src="tonalliMeanings.js"></script>
+    <script src="calculator.js" defer></script> {/* Link to your JavaScript, defer ensures HTML is parsed first */}
+</body>
+</html>

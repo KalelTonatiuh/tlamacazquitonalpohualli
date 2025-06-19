@@ -1,0 +1,54 @@
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f1e9; color: #3a3a3a; line-height: 1.6; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        .container { background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); max-width: 700px; width: 100%; border-top: 5px solid #c49a6c; margin-top: 20px; margin-bottom: 20px; }
+        h1, h2, h3 { text-align: center; color: #8c6239; }
+        h1 { border-bottom: 2px solid #e0dace; padding-bottom: 10px; margin-top: 0; }
+        h2 { margin-top: 25px; padding-bottom: 8px; font-size: 1.4em; border-bottom: 1px solid #e0dace; }
+        h3 { font-size: 1.15em; color: #a57d52; margin-top: 15px; margin-bottom: 8px; text-align: left; border-bottom: 1px dotted #d3c0a9; padding-bottom: 3px; }
+        .intro { font-size: 0.95em; text-align: justify; background-color: #fcfaf5; padding: 15px; border-radius: 5px; border-left: 4px solid #c49a6c; margin-bottom: 25px; }
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .switcher { display: flex; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; }
+        .switcher button { background-color: #f0f0f0; border: none; padding: 5px 10px; cursor: pointer; color: #333; font-size: 0.8em; transition: background-color 0.3s; }
+        .switcher button:first-child { border-right: 1px solid #ccc; }
+        .switcher button.active { background-color: #8c6239; color: white; }
+        
+        .calculator-mode-switcher { margin-bottom: 20px; text-align: center; border-bottom: 1px solid #e0dace; padding-bottom:15px; }
+        .calculator-mode-switcher button { padding: 8px 15px; font-size: 0.9em; margin: 0 5px; cursor:pointer; border: 1px solid #ccc; background-color: #f0f0f0; border-radius: 5px;}
+        .calculator-mode-switcher button.active { background-color: #8c6239; color:white; border-color:#8c6239; }
+
+        #gregorian-to-tonalli-calc, #tonalli-to-gregorian-calc { display: flex; flex-direction: column; gap: 15px; align-items: center; margin-bottom: 25px; }
+        #tonalli-to-gregorian-calc { display: none; } 
+        #tonalli-to-gregorian-calc .input-group { display: flex; flex-direction:column; align-items:center; gap: 8px; margin-bottom:10px; }
+        #tonalli-to-gregorian-calc .input-row { display: flex; gap: 10px; align-items:center; flex-wrap:wrap; justify-content:center;}
+        #tonalli-to-gregorian-calc select, #tonalli-to-gregorian-calc input[type="number"] { padding: 8px; font-size:0.9em; border-radius: 5px; border: 1px solid #ccc; }
+        #start-year-input, #end-year-input {width: 80px;}
+
+        .date-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        label { font-weight: bold; font-size: 1.1em; color: #8c6239; }
+        input[type="date"] { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em; width: 200px; text-align: center; }
+        #today-btn, #calculate-btn, #calculate-gregorian-btn { padding: 10px 20px; background-color: #8c6239; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; transition: background-color 0.3s ease; }
+        #today-btn { background-color: #a57d52; }
+        #today-btn:hover { background-color: #8c6239; }
+        #calculate-btn:hover, #calculate-gregorian-btn:hover { background-color: #6d4d2d; }
+
+        #result-container { margin-top: 25px; padding: 15px 20px; background-color: #fdfaf6; border-radius: 8px; border: 1px solid #e0dace; }
+        .result-section { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #e0dace; }
+        .result-section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+        #result-year-tonalli, #result-day-tonalli-main .tonalli-name { font-size: 1.8em; font-weight: bold; color: #c49a6c; margin: 5px 0; text-align: center; }
+        #result-day-tonalli-main { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 5px; }
+        #day-sign-glyph { width: 40px; height: 40px; }
+        .translations { font-size: 0.8em; color: #666; margin-top: 2px; text-align: center; }
+        #result-trecena, #new-fire-info, #xiuhpohualli-veintena-name, #xiuhpohualli-veintena-day { font-size: 1.05em; color: #555; margin-top: 0; text-align: center; }
+        #xiuhpohualli-veintena-name {font-size: 1.3em; color: #c49a6c; font-weight:bold; margin-top: 5px;}
+        #xiuhpohualli-veintena-approx-gregorian {font-size: 0.8em; color: #777; text-align:center; margin-top: -2px; margin-bottom: 5px;}
+        .error-message { color: #d9534f; font-weight: bold; margin-top: 10px; text-align: center; }
+        .footer { margin-top: 30px; text-align: center; font-size: 0.8em; color: #888; }
+        .info-block { background-color: #f8f5f0; padding: 10px 15px; border-radius: 5px; margin-top: 5px; border-left: 3px solid #d3c0a9; }
+        .info-block p, .info-block div { margin: 0; text-align: justify; font-size: 0.95em; } 
+        #tonalli-meaning-text { /* Removed p selector, apply styles to the div directly */
+             text-align: justify; 
+             font-size: 0.95em;
+        }
+        .suns-info div { text-align: left; margin-bottom: 4px; font-size: 0.9em; }
+        .suns-info h4 { font-size: 0.95em; margin: 10px 0 2px 0; color: #a57d52; text-align: left; }
+        #reverse-results-container { margin-top:15px; max-height: 200px; overflow-y:auto; border:1px solid #eee; padding:10px; background:#fff; text-align:left; }
+        #reverse-results-list li { margin-bottom: 5px; list-style-type: none; padding-left: 0;}
