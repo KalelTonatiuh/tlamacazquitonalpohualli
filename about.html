@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Defaulting to English for content, you can adjust lang attribute if primary is Spanish -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Tonalli Calculator</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the same stylesheet -->
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Tonalli Calculator</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About the Website</a> <!-- Mark as active -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-content-area">
+        <div class="container">
+            <h1>About the Tonalli Calculator</h1>
+
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>
+                    Welcome to the Tonalpohualli Calculator. This website is dedicated to providing insights into the sacred
+                    Mesoamerican calendar system, the Tonalpohualli. The calculations and correlations presented here are
+                    meticulously based on the procedures detailed by Frank Díaz in "Sagrado Trece, Apéndice 5." Our aim is to
+                    offer an accessible tool for study, reflection, and connection with this ancient wisdom.
+                </p>
+            </section>
+
+            <section id="what-is-tonalpohualli">
+                <h2>What is the Tonalpohualli?</h2>
+                <p>
+                    The Tonalpohualli, often translated as the "Count of Days" or "Count of Destinies," is a sacred 260-day divinatory calendar
+                    used by various Nahuatl-speaking and other Mesoamerican cultures, including the Aztec/Mexica. It is a cornerstone of
+                    Mesoamerican cosmovision and was integral to religious ceremonies, divination, and marking important life events.
+                </p>
+                <p>
+                    This 260-day cycle is formed by the intermeshing of two shorter cycles:
+                </p>
+                <ul>
+                    <li>A cycle of <strong>20 named day signs</strong> (<em>tonalli</em> or <em>cemilhuitlapoalamachiotl</em>). Each day sign (e.g., Cipactli - Crocodile, Ehecatl - Wind, Calli - House) carries its own unique symbolism and energetic influence.</li>
+                    <li>A cycle of <strong>13 numbers</strong>, or coefficients (<em>cenpohualpoalamachiotl</em>), which accompany the day signs.</li>
+                </ul>
+                <p>
+                    Each day in the Tonalpohualli is unique, designated by a combination of one of the 13 numbers and one of the 20 day signs (e.g., 1 Cipactli, 2 Ehecatl, ..., 13 Acatl, then 1 Ocelotl, and so on). The cycle completes after 260 days (13 x 20). The Tonalpohualli is further organized into twenty 13-day periods known as <em>trecenas</em>, each starting with the number 1 and a specific day sign, and each trecena having its own ruling deity and associated prophecies.
+                </p>
+                <p>
+                    The Tonalpohualli did not operate in isolation. It synchronized with the <em>Xiuhpohualli</em>, the 365-day solar or agricultural calendar. The combination of these two calendars formed the "Calendar Round" (or <em>Xiuhmolpilli</em> in Nahuatl, meaning "Year Bundle"), a larger cycle of 52 years (18,980 days), after which a specific Tonalpohualli date would again coincide with the same Xiuhpohualli date. This 52-year cycle was profoundly significant, often marked by major "New Fire" ceremonies.
+                </p>
+            </section>
+
+            <section id="what-are-tonallis">
+                <h2>What are Tonallis?</h2>
+                <p>
+                    A "Tonalli" most directly refers to a specific day within the Tonalpohualli cycle, characterized by its unique combination of a numerical coefficient (1-13) and one of the 20 day signs (e.g., Cipactli, Miquiztli, Xochitl).
+                </p>
+                <p>
+                    However, the concept of <em>tonalli</em> extends beyond just a calendar day. In Nahua thought, <em>tonalli</em> is also understood as a vital life force, a spiritual essence, or a destiny inherent in an individual, largely determined by the day of their birth. It was believed that the <em>tonalli</em> of one's birthdate imbued a person with certain characteristics, talents, strengths, weaknesses, and a particular path or destiny in life. This life force was thought to reside primarily in the head and was associated with warmth, the sun, and individual fate.
+                </p>
+                <p>
+                    The specific influences of a Tonalli were multifaceted, drawing from:
+                </p>
+                <ul>
+                    <li>The inherent nature of the <strong>Day Sign</strong>.</li>
+                    <li>The qualities associated with the accompanying <strong>Number</strong>.</li>
+                    <li>The ruling deity and general influences of the <strong>Trecena</strong> (13-day period) to which the Tonalli belongs.</li>
+                    <li>The influence of the <strong>Lord of the Night</strong> (<em>Yoaltecuhtli</em>), one of nine deities that cyclically presided over each night.</li>
+                    <li>The specific <strong>prophecies</strong> or auguries meticulously recorded for each of the 260 Tonallis, as found in ancient codices and ethnographic accounts, and which form the basis of the "Prophecy" section in this calculator.</li>
+                </ul>
+                <p>
+                    Understanding one's birth Tonalli was crucial for navigating life, making decisions, and performing appropriate rituals to ensure harmony and mitigate potential negative influences.
+                </p>
+            </section>
+
+            <section id="mathematical-calculations">
+                <h2>Mathematical Calculations</h2>
+                <p>
+                    The calendrical calculations implemented in this calculator are a direct digital interpretation of the algorithms and correlation data presented by Frank Díaz in "Sagrado Trece, Apéndice 5." The objective is to accurately replicate the results one would obtain using Díaz's tables and methods.
+                </p>
+                <p>
+                    The core process for determining the Tonalpohualli date from a Gregorian date involves:
+                </p>
+                <ul>
+                    <li><strong>Year Value Calculation:</strong> The function `getYearValue` establishes a reference year (1922 in this implementation) with a known Tonalpohualli year characteristic (1 Rabbit). It then calculates the difference from the input Gregorian year to determine the Trecena number (1-13) and the Year Bearer sign (one of Conejo/Rabbit, Caña/Reed, Pedernal/Flint, Casa/House) for the start of the input year, cycling through these based on the year difference.</li>
+                    <li><strong>Day Value Lookup:</strong> The `sagradoTreceData.getDayValue` function uses a comprehensive table that, for a given Gregorian month and day, provides a Trecena number adjustment and a Veintena (day sign index) adjustment relative to the start of that year.</li>
+                    <li><strong>Leap Year Adjustments:</strong> The system incorporates logic to adjust the calculations based on whether the input Gregorian year or the previous year was a leap year, particularly concerning dates before or after February 29th, to maintain synchrony.</li>
+                    <li><strong>Final Tonalli Derivation:</strong> The Trecena and Veintena values from the year calculation are combined with those from the day/month lookup and the leap year adjustment. Modulo arithmetic (modulo 13 for the Trecena number, modulo 20 for the Veintena/day sign) is then applied to yield the final Tonalli number (1-13) and day sign index (1-20) for the given Gregorian date.</li>
+                    <li><strong>Trecena Identification:</strong> Once the day's Tonalli (number and sign) is known, the starting sign of its governing Trecena is calculated by working backward from the day's sign by its number (minus one).</li>
+                    <li><strong>Xiuhpohualli Correlation:</strong> The calculator determines the Veintena (20-day "month") of the Xiuhpohualli (365-day solar year) by using an anchor Gregorian date (February 26, 1922, in this implementation) which corresponds to the start of a specific Veintena. The number of days passed between the input Gregorian date and this anchor is calculated, and modulo 365 is used to find the day's position within the Xiuhpohualli cycle. This position then determines the current Veintena and the day within it, or if it falls within the 5-day Nemontemi period.</li>
+                    <li><strong>Legend of the Suns:</strong> Calculations for the "Legend of the Suns" are anchored to the year 955 BC as the start of the 5th Sun (4 Movement/Ollin), based on interpretations of the Codex Chimalpopoca. Durations for the previous four Suns (as given in myth: 1st Sun - 676 years; 2nd Sun - 364 years; 3rd Sun - 312 years; 4th Sun - 676 years, plus a 52-year flood period before the 5th Sun) are used to calculate the start dates of these mythical eras. The calculator then determines the number of days between the input Gregorian date and these epochal start points.</li>
+                    <li><strong>New Fire Cycle (Xiuhmolpilli):</strong> This is calculated based on a known New Fire Ceremony year (e.g., 1507 AD in Díaz's work, which is typically correlated to a 2 Acatl year). The calculator determines which 52-year cycle the input date falls into and when the next ceremony would occur by projecting this 52-year rhythm forward or backward.</li>
+                </ul>
+                <p>
+                    This calculator extrapolates these cyclical patterns to function for dates beyond the 1922-2077 range explicitly covered by some tables in Frank Díaz's "Apéndice 5," by continuing the established mathematical cycles.
+                </p>
+            </section>
+
+            <section id="calculator-reliability">
+                <h2>Calculator Reliability</h2>
+                <p>
+                    The reliability of this Tonalpohualli Calculator is rooted in its adherence to the specific methodologies, tables, and correlations meticulously outlined by Frank Díaz in "Sagrado Trece, Apéndice 5." His work is a significant contribution to the study of Mesoamerican calendrical systems, offering a detailed framework for understanding these ancient counts.
+                </p>
+                <p>
+                    Every effort has been made to faithfully translate this framework into a functional digital tool. The calculations for the Tonalpohualli day and year, the Trecena, the Xiuhpohualli Veintena, the New Fire Cycle, and the Legend of the Suns are all designed to mirror the logic presented in the source material.
+                </p>
+                <p>
+                    It is important to acknowledge that the study of ancient Mesoamerican calendars is a complex and evolving field with various scholarly interpretations and correlation systems (ways of aligning the Mesoamerican calendar with the Gregorian calendar). This calculator provides results consistent with the Frank Díaz correlation.
+                </p>
+                <p>
+                    The prophecy texts provided for each of the 260 Tonallis are drawn from the extensive `tonalliMeanings.js` file, which synthesizes information from various historical and ethnographic sources, reflecting traditional interpretations of each day's influences. The descriptions of the Xiuhpohualli festivals are paraphrased to provide cultural context, and in accordance with the project's ethical guidelines, explicitly exclude details of sacrificial practices.
+                </p>
+            </section>
+
+            <section id="technical-aspects">
+                <h2>Technical Aspects</h2>
+                <p>
+                    This Tonalli Calculator website is constructed using core web technologies to ensure broad accessibility and functionality:
+                </p>
+                <ul>
+                    <li><strong>HTML (HyperText Markup Language):</strong> Forms the fundamental structure and semantic content of all pages, including the main calculator interface (`index.html`) and this informational page (`about.html`).</li>
+                    <li><strong>CSS (Cascading Style Sheets):</strong> Defined in `styles.css`, this governs all aspects of visual presentation, layout, typography, and responsive design, ensuring a consistent and user-friendly experience across different devices.</li>
+                    <li><strong>JavaScript:</strong> The engine of the calculator, with primary logic residing in `calculator.js`. This file manages:
+                        <ul>
+                            <li>All calendrical calculations based on Frank Díaz's system.</li>
+                            <li>User interface interactions, such as date selection, button clicks, and dynamic display of results.</li>
+                            <li>Data objects containing translations for English and Spanish UI elements, Nahuatl names for calendar components (numbers, day signs, Veintenas), paths to glyph images.</li>
+                            <li>Data for the Xiuhpohualli Veintenas (including paraphrased festival descriptions) and the Legend of the Suns.</li>
+                            <li>Language and spelling preference switching.</li>
+                        </ul>
+                        The `tonalliMeanings.js` file is a very large JavaScript object containing the detailed prophecy texts for all 260 Tonalpohualli days.
+                    </li>
+                </ul>
+                <p>
+                    The website is hosted on <strong>Cloudflare Pages</strong>, a platform designed for deploying static and dynamic web applications with high performance and global content delivery. DNS (Domain Name System) for the `tonalpohualli.org` domain is managed through <strong>Cloudflare</strong>, ensuring efficient and secure domain resolution.
+                </p>
+                <p>
+                    The source code is managed and version-controlled in a <strong>GitHub repository</strong> located at `https://github.com/KalelTonatiuh/tlamacazquitonalpohualli`. Updates pushed to the `main` branch of this repository automatically trigger a new build and deployment process on Cloudflare Pages, facilitating continuous integration and delivery of new features or fixes.
+                </p>
+                <p>
+                    The `glyphs/` folder, located at the root of the repository, contains the 20 PNG images representing the day signs, which are displayed dynamically based on the calculation results.
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Copyright: Kalel Zarathustra 2025</p>
+    </footer>
+
+</body>
+</html>
