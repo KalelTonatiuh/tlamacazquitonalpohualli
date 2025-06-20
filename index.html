@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- NEW NAVIGATION BAR -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Tonalli Calculator</a>
@@ -21,9 +20,8 @@
             </ul>
         </div>
     </nav>
-    <!-- END NEW NAVIGATION BAR -->
 
-    <div class="main-content-area"> <!-- Added wrapper for flexbox footer -->
+    <div class="main-content-area">
         <div class="container">
             <h1 data-key="mainTitle">Calculadora de Tonalli</h1>
             <div class="controls">
@@ -78,19 +76,18 @@
             </div>
 
             <div id="result-container" style="display: none;">
-                <!-- REORDERED SECTIONS START -->
+                <!-- REORDERED SECTIONS from previous requests -->
                 <div class="result-section"> <!-- DAY -->
                     <h2 data-key="dayResultTitle">El Tonalli del Día es:</h2>
                     <div id="result-day-tonalli-main">
+                        <!-- MAYA NUMERAL IMAGE -->
+                        <img id="maya-numeral-glyph" src="" alt="Número Maya del Día" style="display:none;" class="maya-numeral-image">
+                        <!-- DAY SIGN GLYPH -->
                         <img id="day-sign-glyph" src="" alt="Glifo del Día" style="display:none;">
+                        <!-- TEXTUAL NAME (Nahuatl Number + Nahuatl Sign) -->
                         <div class="tonalli-name"></div>
                     </div>
                     <div id="result-day-tonalli-translations" class="translations"></div>
-                </div>
-
-                <div class="result-section"> <!-- PROPHECY (Kept associated with Day) -->
-                    <h3 data-key="tonalliMeaningTitle">Augurio del Tonalli del Día:</h3>
-                    <div id="tonalli-meaning-text" class="info-block"></div>
                 </div>
 
                 <div class="result-section"> <!-- TRECENA -->
@@ -99,12 +96,17 @@
                     <div id="result-trecena-translations" class="translations"></div>
                 </div>
 
+                <div class="result-section"> <!-- PROPHECY -->
+                    <h3 data-key="tonalliMeaningTitle">Profecía del Tonalli del Día:</h3>
+                    <div id="tonalli-meaning-text" class="info-block"></div>
+                </div>
+
                 <div class="result-section"> <!-- YEAR -->
                     <h2 data-key="yearResultTitle">El Tonalli del Año es:</h2>
                     <div id="result-year-tonalli"></div>
                     <div id="result-year-tonalli-translations" class="translations"></div>
                 </div>
-                <!-- REORDERED SECTIONS END -->
+                <!-- END OF REORDERED SECTIONS -->
 
                 <div class="result-section">
                     <h2 data-key="newFireCycleTitle">Ciclo del Fuego Nuevo (Xiuhmolpilli)</h2>
@@ -131,17 +133,15 @@
                 </div>
             </div>
             <p id="error-message" class="error-message" style="display:none;"></p>
-            <div class="footer"> <!-- This is your existing footer inside .container -->
+            <div class="footer">
                 <p data-key="footerText">Implementación digital basada en la obra de Frank Díaz. Creado como una herramienta de estudio y consulta.</p>
             </div>
         </div>
     </div>
 
-    <!-- NEW SITE-WIDE FOOTER -->
     <footer class="site-footer">
         <p>Copyright: Kalel Zarathustra 2025</p>
     </footer>
-    <!-- END NEW SITE-WIDE FOOTER -->
 
     <script src="tonalliMeanings.js"></script>
     <script src="calculator.js" defer></script>

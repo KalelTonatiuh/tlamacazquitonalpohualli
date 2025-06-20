@@ -1,30 +1,28 @@
-/* Existing body styles slightly modified, and new styles added */
 body {
     display: flex;
-    flex-direction: column; /* Changed for top-to-bottom layout of nav, content, footer */
+    flex-direction: column;
     min-height: 100vh;
-    margin: 0; /* Removed default body margin */
+    margin: 0;
     background-color: #f4f1e9;
     color: #3a3a3a;
     line-height: 1.6;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Navigation Bar Styles */
 .navbar {
-    background-color: #333; /* Dark background for navbar */
+    background-color: #333;
     padding: 10px 0;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-container {
-    max-width: 700px; /* Align with main content width */
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Padding inside the nav-container */
+    padding: 0 20px;
 }
 
 .nav-logo {
@@ -42,7 +40,7 @@ body {
 }
 
 .nav-item {
-    margin-left: 20px; /* Spacing between nav items */
+    margin-left: 20px;
 }
 
 .nav-link {
@@ -57,13 +55,12 @@ body {
 .nav-link:hover, .nav-link.active {
     background-color: #555;
 }
-/* End Navigation Bar Styles */
 
 .main-content-area {
-    flex: 1; /* Allows this area to grow and push footer down */
-    display: flex; /* Using flex to easily center the .container */
-    flex-direction: column; /* Stack .container inside */
-    padding: 20px 0; /* Add some vertical spacing around the .container */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
 }
 
 .container {
@@ -72,10 +69,9 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     max-width: 700px;
-    width: 100%; /* Or consider width: 90%; for some horizontal margin */
+    width: 90%; /* Using 90% for a bit of margin on smaller screens */
     border-top: 5px solid #c49a6c;
-    margin: 0 auto; /* Center .container horizontally within .main-content-area */
-    /* margin-top and margin-bottom from original .container are removed as .main-content-area handles spacing */
+    margin: 0 auto;
 }
 
 h1, h2, h3 { text-align: center; color: #8c6239; }
@@ -111,15 +107,48 @@ input[type="date"] { padding: 10px; border: 1px solid #ccc; border-radius: 5px; 
 #result-container { margin-top: 25px; padding: 15px 20px; background-color: #fdfaf6; border-radius: 8px; border: 1px solid #e0dace; }
 .result-section { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #e0dace; }
 .result-section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-#result-year-tonalli, #result-day-tonalli-main .tonalli-name { font-size: 1.8em; font-weight: bold; color: #c49a6c; margin: 5px 0; text-align: center; }
-#result-day-tonalli-main { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 5px; }
-#day-sign-glyph { width: 40px; height: 40px; }
+
+/* Styles for Day Tonalli Main display with Maya Numeral */
+#result-day-tonalli-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Slightly reduced gap */
+    margin-bottom: 5px;
+}
+
+.maya-numeral-image {
+    width: 25px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio, or set fixed height */
+    /* Example fixed height: height: 35px; */
+}
+
+#day-sign-glyph {
+    width: 35px; /* Adjust size as needed */
+    height: 35px; /* Adjust size as needed */
+}
+
+#result-day-tonalli-main .tonalli-name { /* For the text: Nahuatl Number + Sign */
+    font-size: 1.6em; /* Slightly smaller to accommodate glyphs */
+    font-weight: bold;
+    color: #c49a6c;
+}
+/* End Day Tonalli Main display styles */
+
+#result-year-tonalli { /* Style for Year text only if needed, separate from Day */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #c49a6c;
+    margin: 5px 0;
+    text-align: center;
+}
+
 .translations { font-size: 0.8em; color: #666; margin-top: 2px; text-align: center; }
 #result-trecena, #new-fire-info, #xiuhpohualli-veintena-name, #xiuhpohualli-veintena-day { font-size: 1.05em; color: #555; margin-top: 0; text-align: center; }
 #xiuhpohualli-veintena-name {font-size: 1.3em; color: #c49a6c; font-weight:bold; margin-top: 5px;}
 #xiuhpohualli-veintena-approx-gregorian {font-size: 0.8em; color: #777; text-align:center; margin-top: -2px; margin-bottom: 5px;}
 .error-message { color: #d9534f; font-weight: bold; margin-top: 10px; text-align: center; }
-.footer { margin-top: 30px; text-align: center; font-size: 0.8em; color: #888; } /* Your existing content footer */
+.footer { margin-top: 30px; text-align: center; font-size: 0.8em; color: #888; }
 .info-block { background-color: #f8f5f0; padding: 10px 15px; border-radius: 5px; margin-top: 5px; border-left: 3px solid #d3c0a9; }
 .info-block p, .info-block div { margin: 0; text-align: justify; font-size: 0.95em; }
 #tonalli-meaning-text {
@@ -131,15 +160,13 @@ input[type="date"] { padding: 10px; border: 1px solid #ccc; border-radius: 5px; 
 #reverse-results-container { margin-top:15px; max-height: 200px; overflow-y:auto; border:1px solid #eee; padding:10px; background:#fff; text-align:left; }
 #reverse-results-list li { margin-bottom: 5px; list-style-type: none; padding-left: 0;}
 
-/* New Site-Wide Footer Styles */
 .site-footer {
-    background-color: #333; /* Matches navbar */
+    background-color: #333;
     color: #fff;
     text-align: center;
     padding: 15px 0;
     width: 100%;
-    margin-top: auto; /* Pushes footer to the bottom if content is short */
+    margin-top: auto;
     font-size: 0.9em;
-    border-top: 1px solid #555; /* Subtle top border */
+    border-top: 1px solid #555;
 }
-/* End New Site-Wide Footer Styles */

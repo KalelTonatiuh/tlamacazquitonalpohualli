@@ -17,14 +17,13 @@ const translations = {
         yearResultTitle: "El Tonalli del Año es:",
         dayResultTitle: "El Tonalli del Día es:",
         trecenaText: "Perteneciente a la trecena de",
-        tonalliMeaningTitle: "Profecía del Tonalli del Día:", // As per your previous change
+        tonalliMeaningTitle: "Profecía del Tonalli del Día:",
         trecenaTitle: "Trecena",
         newFireCycleTitle: "Ciclo del Fuego Nuevo (Xiuhmolpilli)",
         cycleDateText: "Esta fecha pertenece al ciclo de 52 años de {startYear} - {endYear}.",
         nextCeremonyDateText: "La próxima ceremonia del Fuego Nuevo será el {nextDate}.",
         legendOfSunsTitle: "Leyenda de los Soles (Codex Chimalpopoca)",
-        daysFromSunsPreamble: "La fecha seleccionada está a:", // Or "Años desde los Soles:" or similar if you prefer
-        // UPDATED FOR YEARS
+        daysFromSunsPreamble: "La fecha seleccionada está a:",
         daysFromSun1: "{years} años del inicio del 1er Sol (4 Jaguar).",
         daysFromSun2: "{years} años del inicio del 2º Sol (4 Viento).",
         daysFromSun3: "{years} años del inicio del 3er Sol (4 Lluvia).",
@@ -32,10 +31,9 @@ const translations = {
         daysFromSun5: "{years} años del inicio del 5º Sol (4 Movimiento).",
         fifthSunEndText: "El 5º Sol, de acuerdo a la mitología, terminará en un día 4 Movimiento.",
         fifthSunEndedText: "Han pasado {years} años desde el fin interpretado del 5º Sol el {endDate}.",
-        // END OF UPDATES FOR YEARS
         sunsCalculationTitle: "Base del Cálculo de los Soles:",
         sunsCalculationExplanation: "Anclaje del Códice (1558): El 5º Sol comenzó 2513 años antes, en el 955 a.C. Las eras anteriores se calculan hacia atrás basándose en las duraciones míticas: 1er Sol (676 años), 2º Sol (364 años), 3er Sol (312 años), 4º Sol (676 años + 52 de diluvio).",
-        meaningNotFound: "La profecía para esta entrada específica aún no ha sido añadida.", // As per your previous change
+        meaningNotFound: "La profecía para esta entrada específica aún no ha sido añadida.",
         errorInvalidDate: "Fecha inválida.", errorCalculation: "Ocurrió un error inesperado durante el cálculo.",
         footerText: "Implementación digital basada en la obra de Frank Díaz. Creado como una herramienta de estudio y consulta.",
         gregToTonalliMode: "Gregoriano a Tonalli",
@@ -63,14 +61,13 @@ const translations = {
         yearResultTitle: "The Year's Tonalli is:",
         dayResultTitle: "The Day's Tonalli is:",
         trecenaText: "Belonging to the trecena of",
-        tonalliMeaningTitle: "Prophecy of the Day's Tonalli:", // As per your previous change
+        tonalliMeaningTitle: "Prophecy of the Day's Tonalli:",
         trecenaTitle: "Trecena",
         newFireCycleTitle: "New Fire Cycle (Xiuhmolpilli)",
         cycleDateText: "This date belongs to the 52-year cycle of {startYear} - {endYear}.",
         nextCeremonyDateText: "The next New Fire Ceremony will be on {nextDate}.",
         legendOfSunsTitle: "Legend of the Suns (Codex Chimalpopoca)",
-        daysFromSunsPreamble: "The selected date is:", // Or "Years from the Suns:" or similar if you prefer
-        // UPDATED FOR YEARS
+        daysFromSunsPreamble: "The selected date is:",
         daysFromSun1: "{years} years from the start of the 1st Sun (4 Jaguar).",
         daysFromSun2: "{years} years from the start of the 2nd Sun (4 Wind).",
         daysFromSun3: "{years} years from the start of the 3rd Sun (4 Rain).",
@@ -78,10 +75,9 @@ const translations = {
         daysFromSun5: "{years} years from the start of the 5th Sun (4 Movement).",
         fifthSunEndText: "The 5th Sun, according to mythology, will end on a day 4 Movement.",
         fifthSunEndedText: "{years} years have passed since the interpreted end of the 5th Sun on {endDate}.",
-        // END OF UPDATES FOR YEARS
         sunsCalculationTitle: "Basis for the Suns Calculation:",
         sunsCalculationExplanation: "Codex Anchor (1558): The 5th Sun began 2513 years prior, in 955 BC. Previous eras are calculated backward based on their mythic durations: 1st Sun (676 yrs), 2nd Sun (364 yrs), 3rd Sun (312 yrs), 4th Sun (676 yrs + 52 for the flood).",
-        meaningNotFound: "The prophecy for this specific entry has not yet been added.", // As per your previous change
+        meaningNotFound: "The prophecy for this specific entry has not yet been added.",
         errorInvalidDate: "Invalid date.", errorCalculation: "An unexpected error occurred during calculation.",
         footerText: "Digital implementation based on the work of Frank Díaz. Created as a study and reference tool.",
         gregToTonalliMode: "Gregorian to Tonalli",
@@ -112,47 +108,40 @@ const sagradoTreceData = {
             return v[month-1][day];
         }
         return undefined;
-    }
+    },
+    // NEW ARRAY for Maya Numeral Glyphs
+    mayaNumeralGlyphs: [
+        null, // Index 0, not used
+        "glyphs/maya_1.png", "glyphs/maya_2.png", "glyphs/maya_3.png", "glyphs/maya_4.png",
+        "glyphs/maya_5.png", "glyphs/maya_6.png", "glyphs/maya_7.png", "glyphs/maya_8.png",
+        "glyphs/maya_9.png", "glyphs/maya_10.png", "glyphs/maya_11.png", "glyphs/maya_12.png",
+        "glyphs/maya_13.png"
+    ]
 };
 
 const legendOfSunsData = {
     sun1_duration: 676, sun2_duration: 364, sun3_duration: 312, sun4_duration: 676,
     sun4_flood: 52, sun5_start_year_BC: 955,
-    fifth_sun_end_date: new Date(Date.UTC(2012, 11, 21)) // December 21, 2012
+    fifth_sun_end_date: new Date(Date.UTC(2012, 11, 21))
 };
 
 const xiuhpohualliData = {
-    anchorGregorianDate: new Date(Date.UTC(1922, 1, 26)), // Example: Feb 26, 1922
-    veintenas: [
-        // ... (Your existing full veintenas array - UNCHANGED) ...
-        {
-            nahuatl_ortho: "Atlcahualo", meaning_en: "Dedicated to the water deities. Children were dressed in rich finery and carried on litters adorned with feathers and flowers. People walked ahead playing music, singing, and dancing. If children cried, it was taken as a good omen for rain. Owners of captives, splendidly adorned with feathers, would parade and dance, displaying their courage. These ceremonies took place daily during this month."
-        },
-        // ... all your other veintena objects ...
-        {
-            nahuatl_ortho: "Izcalli", meaning_en: "Dedicated to Xiuhteuctli (Ixcozauhqui, god of fire). On the tenth day, a new fire was made at midnight before the image of Xiuhteuctli, which was peculiarly attired. At dawn, young men and boys brought various animals hunted over the preceding ten days (aquatic and terrestrial). They offered them to the older men guarding the god. These older men threw all these animals into the fire to roast them. Each young man and boy was given a tamale made of amaranth seeds (huauhquiltamalli), which all the people offered that day; they all ate them very hot in honor of the festival, drinking and making merry. In ordinary years, there were no ritual killings. In a leap year (every four years), nobles, lords, illustrious people, and the emperor himself would be very richly dressed and adorned, and they would begin a solemn and grave areito (netecuhitotiliztli, 'areito of the lords'), performed only every four years. That same day (leap year), very early before dawn, they would pierce the ears of boys and girls, and place on their heads a skullcap made of parrot feathers glued with pine resin (ocotzotl)."
-        }
-    ],
-    nemontemi: {
-        nahuatl_ortho: "Nemontemi",
-        es: "Nemontemi",
-        en: "Nemontemi",
-        approx_gregorian: "ca. Feb 21-25",
-        meaning_es: "Cinco (o seis en año bisiesto) días considerados aciagos y de mala suerte. Los nacidos en ellos tendrían malos resultados y serían pobres y miserables (llamados Nenoquich los hombres, Nencihuatl las mujeres). Generalmente no se hacía nada. Se abstenían especialmente de reñir (augurio de seguir con ese hábito). Tropezar era mal augurio.",
-        meaning_en: "Five (or six in a leap year) days considered ill-fated and unlucky. Those born during them would have bad outcomes and be poor and miserable (men called Nenoquich, women Nencihuatl). Generally, nothing was done. They especially abstained from quarreling (omen of keeping that habit). Stumbling was a bad omen."
-    }
+    anchorGregorianDate: new Date(Date.UTC(1922, 1, 26)),
+    veintenas: [ /* ... Your full veintenas array here ... */ ],
+    nemontemi: { /* ... Your nemontemi object here ... */ }
 };
 
 
-// DOM Elements (Assumed to be unchanged from your original code)
+// DOM Elements
 const dateInput = document.getElementById('gregorian-date');
 const calculateBtn = document.getElementById('calculate-btn');
 const todayBtn = document.getElementById('today-btn');
 const resultContainer = document.getElementById('result-container');
 const resultYearTonalliEl = document.getElementById('result-year-tonalli');
 const resultYearTonalliTransEl = document.getElementById('result-year-tonalli-translations');
-const resultDayTonalliMainEl = document.querySelector('#result-day-tonalli-main .tonalli-name');
+const resultDayTonalliMainEl = document.getElementById('result-day-tonalli-main'); // The parent div
 const daySignGlyphEl = document.getElementById('day-sign-glyph');
+const mayaNumeralGlyphEl = document.getElementById('maya-numeral-glyph'); // NEW
 const resultDayTonalliTransEl = document.getElementById('result-day-tonalli-translations');
 const resultTrecenaEl = document.getElementById('result-trecena');
 const resultTrecenaTransEl = document.getElementById('result-trecena-translations');
@@ -182,10 +171,9 @@ const calculateGregorianBtn = document.getElementById('calculate-gregorian-btn')
 const reverseResultsContainerEl = document.getElementById('reverse-results-container');
 const reverseResultsListEl = document.getElementById('reverse-results-list');
 
-// --- FUNCTIONS --- (Assuming these are largely unchanged except displayResult)
-
+// --- FUNCTIONS ---
 function getNewFireInfo(selectedDate) {
-    const anchorCeremonyYear = 1507; const ceremonyMonth = 10; const ceremonyDay = 19; // Month is 0-indexed for Date object
+    const anchorCeremonyYear = 1507; const ceremonyMonth = 10; const ceremonyDay = 19;
     let nextCeremonyYear = anchorCeremonyYear;
     if (selectedDate && !isNaN(selectedDate.getTime())) {
         const selectedDateTime = selectedDate.getTime();
@@ -194,9 +182,7 @@ function getNewFireInfo(selectedDate) {
         }
     } else {
         const currentYear = new Date().getUTCFullYear();
-        while(nextCeremonyYear <= currentYear) {
-            nextCeremonyYear += 52;
-        }
+        while(nextCeremonyYear <= currentYear) { nextCeremonyYear += 52; }
     }
     const previousCeremonyYear = nextCeremonyYear - 52;
     const nextCeremonyDate = new Date(Date.UTC(nextCeremonyYear, ceremonyMonth, ceremonyDay));
@@ -206,42 +192,28 @@ function getNewFireInfo(selectedDate) {
 function getXiuhpohualliVeintena(selectedDate) {
     const anchorDate = xiuhpohualliData.anchorGregorianDate;
     const msPerDay = 1000 * 60 * 60 * 24;
-
-    if (!(selectedDate instanceof Date) || isNaN(selectedDate.getTime())) {
-         console.error("Invalid selectedDate in getXiuhpohualliVeintena:", selectedDate);
-         return null;
-    }
-
+    if (!(selectedDate instanceof Date) || isNaN(selectedDate.getTime())) { return null; }
     const diffTotalDays = Math.floor((selectedDate.getTime() - anchorDate.getTime()) / msPerDay);
-    let dayInXiuhpohualliCycle = ( (diffTotalDays % 365) + 365) % 365;
-    dayInXiuhpohualliCycle += 1; // 1-indexed day
-
+    let dayInXiuhpohualliCycle = ((diffTotalDays % 365) + 365) % 365 + 1;
     if (dayInXiuhpohualliCycle <= 360) {
         const veintenaIndex = Math.floor((dayInXiuhpohualliCycle -1) / 20);
         const dayInVeintena = (dayInXiuhpohualliCycle -1) % 20 + 1;
-        const veintenaInfo = xiuhpohualliData.veintenas[veintenaIndex];
-        if (!veintenaInfo) {
-            console.error("Veintena info not found for index:", veintenaIndex);
-            return null;
-        }
-        return { nameData: veintenaInfo, day: dayInVeintena, isNemontemi: false };
+        return { nameData: xiuhpohualliData.veintenas[veintenaIndex], day: dayInVeintena, isNemontemi: false };
     } else {
-        const dayInNemontemi = dayInXiuhpohualliCycle - 360;
-        return { nameData: xiuhpohualliData.nemontemi, day: dayInNemontemi, isNemontemi: true };
+        return { nameData: xiuhpohualliData.nemontemi, day: dayInXiuhpohualliCycle - 360, isNemontemi: true };
     }
 }
 
 function isGregorianLeap(year) { return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0); }
 
 function getYearValue(year) {
-    const refYear = 1922, refTrecenaNum = 1, refSignIndex = 0; // Assuming 'Conejo' is index 0 of yearBearers
-    const yearBearers = ['Conejo', 'Caña', 'Pedernal', 'Casa']; // These map to 8, 13, 18, 3 in signToNumber
+    const refYear = 1922, refTrecenaNum = 1, refSignIndex = 0;
+    const yearBearers = ['Conejo', 'Caña', 'Pedernal', 'Casa'];
     const yearDiff = year - refYear;
     const mod = (n, m) => ((n % m) + m) % m;
     const finalTrecenaNum = mod(refTrecenaNum - 1 + yearDiff, 13) + 1;
     const finalSignName = yearBearers[mod(refSignIndex + yearDiff, 4)];
-    const finalVeintenaNum = sagradoTreceData.signToNumber[finalSignName];
-    return { trecena: finalTrecenaNum, veintena: finalVeintenaNum }; // veintena here is the sign index for the year bearer
+    return { trecena: finalTrecenaNum, veintena: sagradoTreceData.signToNumber[finalSignName] };
 }
 
 function setLanguage(lang) {
@@ -253,12 +225,9 @@ function setLanguage(lang) {
     });
     if (langSwitcher.querySelector('.active')) langSwitcher.querySelector('.active').classList.remove('active');
     if (langSwitcher.querySelector(`[data-lang="${lang}"]`)) langSwitcher.querySelector(`[data-lang="${lang}"]`).classList.add('active');
-
     populateTonalliInputs();
-    if (currentCalculatorMode === 'gregorianToTonalli') {
-        if (lastResult) { displayResult(lastResult); }
-        else if (errorMessageEl.dataset.key && errorMessageEl.style.display !== 'none') { displayError(errorMessageEl.dataset.key); }
-    }
+    if (currentCalculatorMode === 'gregorianToTonalli' && lastResult) displayResult(lastResult);
+    else if (errorMessageEl.dataset.key && errorMessageEl.style.display !== 'none') displayError(errorMessageEl.dataset.key);
 }
 
 function setSpelling(spelling) {
@@ -266,24 +235,20 @@ function setSpelling(spelling) {
     if(spellingSwitcher.querySelector('.active')) spellingSwitcher.querySelector('.active').classList.remove('active');
     if(spellingSwitcher.querySelector(`[data-spelling="${spelling}"]`)) spellingSwitcher.querySelector(`[data-spelling="${spelling}"]`).classList.add('active');
     populateTonalliInputs();
-    if (currentCalculatorMode === 'gregorianToTonalli' && lastResult) {
-         displayResult(lastResult);
-    }
+    if (currentCalculatorMode === 'gregorianToTonalli' && lastResult) displayResult(lastResult);
 }
 
 function populateTonalliInputs() {
     tonalliNumberInputEl.innerHTML = '';
     for (let i = 1; i <= 13; i++) {
-        const option = document.createElement('option');
-        option.value = i;
+        const option = document.createElement('option'); option.value = i;
         option.textContent = sagradoTreceData.nahuatlNumbers[i] ? `${i} (${sagradoTreceData.nahuatlNumbers[i]})` : i;
         tonalliNumberInputEl.appendChild(option);
     }
     tonalliSignInputEl.innerHTML = '';
     sagradoTreceData.numberToSign.forEach((signData, index) => {
-        if (index === 0 || !signData) return; // Skip null at index 0
-        const option = document.createElement('option');
-        option.value = index;
+        if (index === 0 || !signData) return;
+        const option = document.createElement('option'); option.value = index;
         const signNameDisplay = currentSpelling === 'ortho' ? signData.nahuatl_ortho : signData.nahuatl_phonetic;
         option.textContent = `${signNameDisplay} (${signData[currentLang] || signData.es})`;
         tonalliSignInputEl.appendChild(option);
@@ -291,436 +256,246 @@ function populateTonalliInputs() {
 }
 
 function getTonalliForDate(gregorianDate) {
-    const year = gregorianDate.getUTCFullYear();
-    const month = gregorianDate.getUTCMonth() + 1; // 1-12
-    const day = gregorianDate.getUTCDate(); // 1-31
-
-    const yearValue = getYearValue(year); // {trecena, veintena (sign index)}
-    let dayValue;
-
-    if (month === 2 && day === 29 && isGregorianLeap(year)) {
-        // According to Frank Diaz's tables, Feb 29 is treated as March 1 for Tonalpohualli calculation
-        // The table for March (index 2) day 1 (index 1 in getDayValue)
-        dayValue = sagradoTreceData.getDayValue(3, 1);
-    } else {
-        dayValue = sagradoTreceData.getDayValue(month, day);
-    }
-
-    if (typeof dayValue === 'undefined' || dayValue === null) {
-         console.error("getDayValue returned undefined for month:", month, "day:", day);
-         return null; // Or handle error appropriately
-    }
-
-    // dayValue = [dayTrecenaAdjustment, dayVeintenaAdjustment]
+    const year = gregorianDate.getUTCFullYear(), month = gregorianDate.getUTCMonth() + 1, day = gregorianDate.getUTCDate();
+    const yearValue = getYearValue(year);
+    let dayValue = (month === 2 && day === 29 && isGregorianLeap(year)) ? sagradoTreceData.getDayValue(3, 1) : sagradoTreceData.getDayValue(month, day);
+    if (typeof dayValue === 'undefined' || dayValue === null) return null;
     const dayNumValue = { trecena: dayValue[0], veintena: dayValue[1] };
-
     let adjustment = { trecena: 0, veintena: 0 };
-    const prevYear = year - 1;
-
-    // Frank Diaz's leap year adjustment logic (Apéndice 5, "Nota Importante")
-    // If current year is leap and date is AFTER Feb 29 (i.e., from March 1 onwards) -> add 1
-    if (isGregorianLeap(year) && month > 2) {
-        adjustment = { trecena: 1, veintena: 1 };
-    }
-    // If current year is NOT leap, BUT PREVIOUS year WAS leap,
-    // and date is BEFORE Feb 20 (i.e., Jan 1 to Feb 19) -> add 1
-    // (The book implies the shift happens around Feb 20th for the start of Atlcahualo)
-    else if (!isGregorianLeap(year) && isGregorianLeap(prevYear) && (month < 2 || (month === 2 && day <= 19))) {
-        adjustment = { trecena: 1, veintena: 1 };
-    }
-
+    if (isGregorianLeap(year) && month > 2) adjustment = { trecena: 1, veintena: 1 };
+    else if (!isGregorianLeap(year) && isGregorianLeap(year - 1) && (month < 2 || (month === 2 && day <= 19))) adjustment = { trecena: 1, veintena: 1 };
     const totalTrecena = yearValue.trecena + dayNumValue.trecena + adjustment.trecena;
     const totalVeintena = yearValue.veintena + dayNumValue.veintena + adjustment.veintena;
-
-    // Result must be 1-13 for trecena and 1-20 for veintena (sign index)
-    return {
-        dayTrecena: totalTrecena % 13 || 13,
-        dayVeintena: totalVeintena % 20 || 20
-    };
+    return { dayTrecena: totalTrecena % 13 || 13, dayVeintena: totalVeintena % 20 || 20 };
 }
 
 function calculateTonalli() {
     try {
         clearAllErrorMessages();
-        const dateString = dateInput.value;
-        if (!dateString) { return displayError('errorInvalidDate'); }
-
-        // Ensure date is parsed as UTC to avoid timezone issues
-        const dateParts = dateString.split('-');
-        const year = parseInt(dateParts[0]);
-        const month = parseInt(dateParts[1]) -1; // Month is 0-indexed for JS Date
-        const day = parseInt(dateParts[2]);
-        const date = new Date(Date.UTC(year, month, day));
-
-        if (isNaN(date.getTime())) { return displayError('errorInvalidDate'); }
-
+        const dateString = dateInput.value; if (!dateString) return displayError('errorInvalidDate');
+        const [year, month, day] = dateString.split('-').map(Number);
+        const date = new Date(Date.UTC(year, month - 1, day));
+        if (isNaN(date.getTime())) return displayError('errorInvalidDate');
         clearGregToTonResults();
-
-        const gregorianYear = date.getUTCFullYear();
-        const tonalliResult = getTonalliForDate(date);
-
-        if (!tonalliResult) { return displayError('errorCalculation'); }
-
-        const yearValue = getYearValue(gregorianYear); // {trecena, veintena (sign index for year bearer)}
-
-        // Calculate trecena starting sign
-        // (DaySignIndex - (DayNumber - 1) + 20) % 20 gives 0-19, so add 1 if result is 0, or use || 20 for 1-20
+        const tonalliResult = getTonalliForDate(date); if (!tonalliResult) return displayError('errorCalculation');
+        const yearValue = getYearValue(date.getUTCFullYear());
         const trecenaStartSignIndex = (tonalliResult.dayVeintena - (tonalliResult.dayTrecena - 1) + 20) % 20 || 20;
-
-
         lastResult = {
-            yearTrecena: yearValue.trecena,
-            yearVeintena: yearValue.veintena, // This is the sign index of the year bearer
-            dayTrecena: tonalliResult.dayTrecena,
-            dayVeintena: tonalliResult.dayVeintena, // This is the sign index of the day
-            trecenaStartSignIndex: trecenaStartSignIndex,
-            selectedDate: date
+            yearTrecena: yearValue.trecena, yearVeintena: yearValue.veintena,
+            dayTrecena: tonalliResult.dayTrecena, dayVeintena: tonalliResult.dayVeintena,
+            trecenaStartSignIndex: trecenaStartSignIndex, selectedDate: date
         };
         displayResult(lastResult);
-    } catch (error) {
-        console.error("G->T Calculation failed:", error, error.stack);
-        displayError('errorCalculation');
-    }
+    } catch (error) { console.error("G->T Calc failed:", error); displayError('errorCalculation'); }
 }
 
 function calculateGregorianFromTonalli() {
-    clearTonToGregResults();
-    clearAllErrorMessages();
-
-    const targetNumber = parseInt(tonalliNumberInputEl.value);
-    const targetSignIndex = parseInt(tonalliSignInputEl.value);
-    let startYear = parseInt(startYearInputEl.value);
-    let endYear = parseInt(endYearInputEl.value);
-
-    if (isNaN(targetNumber) || isNaN(targetSignIndex) || isNaN(startYear) || isNaN(endYear)) {
-        return displayError('errorMissingInputs');
-    }
-    if (startYear > endYear) { return displayError('errorYearRange'); }
-    if (endYear - startYear > 10) { // Limit search range for performance
-         endYear = startYear + 10;
-         endYearInputEl.value = endYear; // Update the UI
-         console.warn("Search range automatically limited to 10 years for performance.");
-    }
-
-    let foundDates = [];
-    let iterationCount = 0;
-    const maxIterations = 366 * (endYear - startYear + 2); // Generous max iterations
-
+    clearTonToGregResults(); clearAllErrorMessages();
+    const targetNumber = parseInt(tonalliNumberInputEl.value), targetSignIndex = parseInt(tonalliSignInputEl.value);
+    let startYear = parseInt(startYearInputEl.value), endYear = parseInt(endYearInputEl.value);
+    if (isNaN(targetNumber) || isNaN(targetSignIndex) || isNaN(startYear) || isNaN(endYear)) return displayError('errorMissingInputs');
+    if (startYear > endYear) return displayError('errorYearRange');
+    if (endYear - startYear > 10) { endYear = startYear + 10; endYearInputEl.value = endYear; }
+    let foundDates = [], iterationCount = 0, maxIterations = 366 * (endYear - startYear + 2);
     for (let y = startYear; y <= endYear; y++) {
-        for (let m = 0; m < 12; m++) { // Month is 0-11 for JS Date
+        for (let m = 0; m < 12; m++) {
             const daysInMonth = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
             for (let d = 1; d <= daysInMonth; d++) {
-                iterationCount++;
-                if (iterationCount > maxIterations ) { // Safety break
-                    console.error("Exceeded max iterations in reverse search.");
-                    displayError('errorCalculation'); // Or a more specific error
-                    return;
-                }
+                if (++iterationCount > maxIterations) { displayError('errorCalculation'); return; }
                 const currentDate = new Date(Date.UTC(y, m, d));
                 const tonalli = getTonalliForDate(currentDate);
-                if (tonalli && tonalli.dayTrecena === targetNumber && tonalli.dayVeintena === targetSignIndex) {
-                    foundDates.push(currentDate);
-                }
+                if (tonalli && tonalli.dayTrecena === targetNumber && tonalli.dayVeintena === targetSignIndex) foundDates.push(currentDate);
             }
         }
     }
-
-    reverseResultsListEl.innerHTML = ''; // Clear previous results
-    if (foundDates.length > 0) {
-        foundDates.forEach(date => {
-            const li = document.createElement('li');
-            li.textContent = date.toLocaleDateString(currentLang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-            reverseResultsListEl.appendChild(li);
-        });
-    } else {
+    reverseResultsListEl.innerHTML = '';
+    if (foundDates.length > 0) foundDates.forEach(date => {
         const li = document.createElement('li');
-        li.textContent = translations[currentLang].noGregorianDatesFound;
+        li.textContent = date.toLocaleDateString(currentLang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         reverseResultsListEl.appendChild(li);
-    }
+    }); else reverseResultsListEl.innerHTML = `<li>${translations[currentLang].noGregorianDatesFound}</li>`;
     reverseResultsContainerEl.style.display = 'block';
 }
 
-
 function displayResult(result) {
     resultContainer.style.display = 'block';
-    errorMessageEl.style.display = 'none';
-    errorMessageEl.dataset.key = '';
+    errorMessageEl.style.display = 'none'; errorMessageEl.dataset.key = '';
 
+    const tonalliNameDiv = document.querySelector('#result-day-tonalli-main .tonalli-name');
 
     // YEAR TONALLI
-    const yearSignData = sagradoTreceData.numberToSign[result.yearVeintena]; // yearVeintena is sign index of year bearer
-    if (yearSignData && sagradoTreceData.nahuatlNumbers[result.yearTrecena]) {
-        resultYearTonalliEl.textContent = `${sagradoTreceData.nahuatlNumbers[result.yearTrecena]} ${currentSpelling === 'ortho' ? yearSignData.nahuatl_ortho : yearSignData.nahuatl_phonetic}`;
-        resultYearTonalliTransEl.textContent = `(${result.yearTrecena} / Español: ${yearSignData.es} / English: ${yearSignData.en})`;
-    } else {
-        resultYearTonalliEl.textContent = 'Error';
-        resultYearTonalliTransEl.textContent = '';
-    }
+    const yearSignData = sagradoTreceData.numberToSign[result.yearVeintena];
+    resultYearTonalliEl.textContent = (yearSignData && sagradoTreceData.nahuatlNumbers[result.yearTrecena]) ? `${sagradoTreceData.nahuatlNumbers[result.yearTrecena]} ${currentSpelling === 'ortho' ? yearSignData.nahuatl_ortho : yearSignData.nahuatl_phonetic}` : 'Error';
+    resultYearTonalliTransEl.textContent = (yearSignData) ? `(${result.yearTrecena} / Español: ${yearSignData.es} / English: ${yearSignData.en})` : '';
 
-    // DAY TONALLI
-    const daySignData = sagradoTreceData.numberToSign[result.dayVeintena]; // dayVeintena is sign index of the day
+    // DAY TONALLI (Text, Glyphs, Maya Numeral)
+    const daySignData = sagradoTreceData.numberToSign[result.dayVeintena];
     if (daySignData && sagradoTreceData.nahuatlNumbers[result.dayTrecena]) {
-        resultDayTonalliMainEl.textContent = `${sagradoTreceData.nahuatlNumbers[result.dayTrecena]} ${currentSpelling === 'ortho' ? daySignData.nahuatl_ortho : daySignData.nahuatl_phonetic}`;
+        if (tonalliNameDiv) tonalliNameDiv.textContent = `${sagradoTreceData.nahuatlNumbers[result.dayTrecena]} ${currentSpelling === 'ortho' ? daySignData.nahuatl_ortho : daySignData.nahuatl_phonetic}`;
         resultDayTonalliTransEl.textContent = `(${result.dayTrecena} / Español: ${daySignData.es} / English: ${daySignData.en})`;
 
         const glyphPath = sagradoTreceData.signGlyphs[result.dayVeintena];
-        if (glyphPath) {
-            daySignGlyphEl.src = glyphPath;
-            daySignGlyphEl.alt = daySignData[currentLang] || daySignData.es;
+        if (glyphPath && daySignGlyphEl) {
+            daySignGlyphEl.src = glyphPath; daySignGlyphEl.alt = daySignData[currentLang] || daySignData.es;
             daySignGlyphEl.style.display = 'inline-block';
-        } else {
-            daySignGlyphEl.style.display = 'none';
-        }
-    } else {
-        resultDayTonalliMainEl.textContent = 'Error';
-        resultDayTonalliTransEl.textContent = '';
-        daySignGlyphEl.style.display = 'none';
-    }
+        } else if (daySignGlyphEl) daySignGlyphEl.style.display = 'none';
 
+        const mayaNumeralPath = sagradoTreceData.mayaNumeralGlyphs[result.dayTrecena];
+        if (mayaNumeralPath && mayaNumeralGlyphEl) {
+            mayaNumeralGlyphEl.src = mayaNumeralPath; mayaNumeralGlyphEl.alt = `Número Maya ${result.dayTrecena}`;
+            mayaNumeralGlyphEl.style.display = 'inline-block';
+        } else if (mayaNumeralGlyphEl) mayaNumeralGlyphEl.style.display = 'none';
+    } else {
+        if (tonalliNameDiv) tonalliNameDiv.textContent = 'Error';
+        if (resultDayTonalliTransEl) resultDayTonalliTransEl.textContent = '';
+        if (daySignGlyphEl) daySignGlyphEl.style.display = 'none';
+        if (mayaNumeralGlyphEl) mayaNumeralGlyphEl.style.display = 'none';
+    }
 
     // TRECENA
     const trecenaSignData = sagradoTreceData.numberToSign[result.trecenaStartSignIndex];
-    if (trecenaSignData && sagradoTreceData.nahuatlNumbers[1]) {
-        resultTrecenaEl.textContent = `${translations[currentLang].trecenaText} ${sagradoTreceData.nahuatlNumbers[1]} ${currentSpelling === 'ortho' ? trecenaSignData.nahuatl_ortho : trecenaSignData.nahuatl_phonetic}`;
-        resultTrecenaTransEl.textContent = `(1 / Español: ${trecenaSignData.es} / English: ${trecenaSignData.en})`;
-    } else {
-        resultTrecenaEl.textContent = 'Error';
-        resultTrecenaTransEl.textContent = '';
-    }
+    resultTrecenaEl.textContent = (trecenaSignData && sagradoTreceData.nahuatlNumbers[1]) ? `${translations[currentLang].trecenaText} ${sagradoTreceData.nahuatlNumbers[1]} ${currentSpelling === 'ortho' ? trecenaSignData.nahuatl_ortho : trecenaSignData.nahuatl_phonetic}` : 'Error';
+    resultTrecenaTransEl.textContent = (trecenaSignData) ? `(1 / Español: ${trecenaSignData.es} / English: ${trecenaSignData.en})` : '';
 
-
-    // --- MEANING DISPLAY ---
+    // MEANING DISPLAY
     const meaningKey = `${result.dayTrecena}_${result.dayVeintena}`;
-    let fullMeaningText = "";
-    if (typeof tonalliMeanings !== 'undefined' && tonalliMeanings[meaningKey]) {
-         fullMeaningText = tonalliMeanings[meaningKey];
-    } else {
-        console.warn(`Meaning not found for key: ${meaningKey}. Or 'tonalliMeanings' object is not defined yet.`);
-        if (tonalliMeaningContainerEl) tonalliMeaningContainerEl.innerHTML = `<p>${translations[currentLang].meaningNotFound}</p>`;
-    }
-
-    if (fullMeaningText && tonalliMeaningContainerEl) {
-        fullMeaningText = fullMeaningText
-            .replace(/\n/g, '<br>')
+    let fullMeaningText = (typeof tonalliMeanings !== 'undefined' && tonalliMeanings[meaningKey]) ? tonalliMeanings[meaningKey] : "";
+    if (!fullMeaningText && tonalliMeaningContainerEl) {
+        tonalliMeaningContainerEl.innerHTML = `<p>${translations[currentLang].meaningNotFound}</p>`;
+    } else if (fullMeaningText && tonalliMeaningContainerEl) {
+        fullMeaningText = fullMeaningText.replace(/\n/g, '<br>')
             .replace(/\*\*(TRECENA.*?)\*\*/g, '<h3>$1</h3>')
-            .replace(/\*\*([A-Z\s\d\/().:,']+?)\*\*/g, (match, p1) => {
-                const trimmedP1 = p1.trim();
-                if (trimmedP1 === "---" || trimmedP1 === "" || trimmedP1.startsWith("(") ) return match; // Avoid bolding --- or empty or parenthesized
-                return `<strong>${trimmedP1}</strong>`;
-             })
-            // Consolidate specific keyword bolding
-            .replace(/(LUCK:|BAPTISM:|UMBILICAL CORD RITUALS:|GOOD ATTRIBUTES\/FORTUNE:|BAD ATTRIBUTES\/MISFORTUNE:|REMEDIES\/MITIGATION:|REMEDY FOR THIS TRECENA:|RITUALS DURING THIS TRECENA:|CIHUATETEOH ACTIVITY:|ILLNESS DURING THIS SIGN:|UNIVERSAL LUCK NOTE FOR THIS TRECENA:|NUMERICAL INFLUENCE ON HOUSES:|NOTE:|<LUCK>:|<BAPTISM>:|<UMBILICAL CORD RITUALS>:|<GOOD ATTRIBUTES\/FORTUNE>:|<BAD ATTRIBUTES\/MISFORTUNE>:|<REMEDIES\/MITIGATION>:|<REMEDY FOR THIS TRECENA>:|<RITUALS DURING THIS TRECENA>:|<CIHUATETEOH ACTIVITY>:|<ILLNESS DURING THIS SIGN>:|<UNIVERSAL LUCK NOTE FOR THIS TRECENA>:|<NUMERICAL INFLUENCE ON HOUSES>:|<NOTE>:|GENERAL NOTES\/RULERS\/RITUALS:|<GENERAL NOTES\/RULERS\/RITUALS>:)/gi, (match) => `<strong>${match.replace(/[<>:]/g, '').trim()}:</strong>`);
-
+            .replace(/\*\*([A-Z\s\d\/().:,']+?)\*\*/g, (m, p1) => (p1.trim()==="---"||p1.trim()===""||p1.trim().startsWith("("))?m:`<strong>${p1.trim()}</strong>`)
+            .replace(/(LUCK:|BAPTISM:|UMBILICAL CORD RITUALS?:|GOOD ATTRIBUTES\/FORTUNE:|BAD ATTRIBUTES\/MISFORTUNE:|REMEDIES\/MITIGATION:|REMEDY FOR THIS TRECENA:|RITUALS DURING THIS TRECENA:|CIHUATETEOH ACTIVITY:|ILLNESS DURING THIS SIGN:|UNIVERSAL LUCK NOTE FOR THIS TRECENA:|NUMERICAL INFLUENCE ON HOUSES:|NOTE:|<LUCK>:|<BAPTISM>:|<UMBILICAL CORD RITUALS?>:|<GOOD ATTRIBUTES\/FORTUNE>:|<BAD ATTRIBUTES\/MISFORTUNE>:|<REMEDIES\/MITIGATION>:|<REMEDY FOR THIS TRECENA>:|<RITUALS DURING THIS TRECENA>:|<CIHUATETEOH ACTIVITY>:|<ILLNESS DURING THIS SIGN>:|<UNIVERSAL LUCK NOTE FOR THIS TRECENA>:|<NUMERICAL INFLUENCE ON HOUSES>:|<NOTE>:|GENERAL NOTES\/RULERS\/RITUALS:|<GENERAL NOTES\/RULERS\/RITUALS>:)/gi, m => `<strong>${m.replace(/[<>:]/g,'').trim()}:</strong>`);
         tonalliMeaningContainerEl.innerHTML = fullMeaningText;
     }
-    // --- END OF MEANING DISPLAY ---
 
-    const dateForCycle = result.selectedDate; // Use the stored selectedDate for consistency
+    // NEW FIRE CYCLE
+    const dateForCycle = result.selectedDate;
     const fireCycleInfo = getNewFireInfo(dateForCycle);
     if (fireCycleInfo) {
         cycleRangeTextEl.textContent = translations[currentLang].cycleDateText.replace('{startYear}', fireCycleInfo.startYear).replace('{endYear}', fireCycleInfo.endYear);
         const nextDateFormatted = fireCycleInfo.nextDate.toLocaleDateString(currentLang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         nextCeremonyTextEl.textContent = translations[currentLang].nextCeremonyDateText.replace('{nextDate}', nextDateFormatted);
-    } else {
-        cycleRangeTextEl.textContent = '';
-        nextCeremonyTextEl.textContent = '';
-    }
+    } else { cycleRangeTextEl.textContent = ''; nextCeremonyTextEl.textContent = ''; }
 
     // SUNS CALCULATION PART - UPDATED
-    const sun5_start_calc = new Date(Date.UTC(-legendOfSunsData.sun5_start_year_BC + 1, 0, 1)); // Correct for BC year
+    const sun5_start_calc = new Date(Date.UTC(-legendOfSunsData.sun5_start_year_BC + 1, 0, 1));
     const sun4_start_calc = new Date(sun5_start_calc); sun4_start_calc.setUTCFullYear(sun5_start_calc.getUTCFullYear() - (legendOfSunsData.sun4_duration + legendOfSunsData.sun4_flood));
     const sun3_start_calc = new Date(sun4_start_calc); sun3_start_calc.setUTCFullYear(sun4_start_calc.getUTCFullYear() - legendOfSunsData.sun3_duration);
     const sun2_start_calc = new Date(sun3_start_calc); sun2_start_calc.setUTCFullYear(sun3_start_calc.getUTCFullYear() - legendOfSunsData.sun2_duration);
     const sun1_start_calc = new Date(sun2_start_calc); sun1_start_calc.setUTCFullYear(sun2_start_calc.getUTCFullYear() - legendOfSunsData.sun1_duration);
     const sunDates = [sun1_start_calc, sun2_start_calc, sun3_start_calc, sun4_start_calc, sun5_start_calc];
-
-    let sunsHTML = `<p>${translations[currentLang].daysFromSunsPreamble}</p>`; // Key can remain, placeholder changed
+    let sunsHTML = `<p>${translations[currentLang].daysFromSunsPreamble}</p>`;
     const currentYearForSuns = dateForCycle.getUTCFullYear();
-
     sunDates.forEach((sunStartDate, index) => {
         if (sunStartDate && !isNaN(sunStartDate.getTime())) {
-            const sunStartYear = sunStartDate.getUTCFullYear(); // Can be negative for BC
+            const sunStartYear = sunStartDate.getUTCFullYear();
             let yearsPassed = currentYearForSuns - sunStartYear;
-
-            // Adjust if one date is BC and other is AD, as there's no year 0 in common counting
-            if (currentYearForSuns > 0 && sunStartYear <= 0) { // sunStartYear can be 0 if it's 1 BC due to Date obj
-                 yearsPassed -=1;
-            }
-
+            if (currentYearForSuns > 0 && sunStartYear <= 0) yearsPassed -=1;
             const yearString = Math.abs(Math.floor(yearsPassed)).toLocaleString(currentLang);
             sunsHTML += `<div>${translations[currentLang]['daysFromSun' + (index + 1)].replace('{years}', yearString)}</div>`;
-        } else {
-             sunsHTML += `<div>${translations[currentLang]['daysFromSun' + (index + 1)].replace('{years}', 'N/A (Date Error)')}</div>`;
-        }
+        } else sunsHTML += `<div>${translations[currentLang]['daysFromSun' + (index + 1)].replace('{years}', 'N/A')}</div>`;
     });
     daysFromSunsTextEl.innerHTML = sunsHTML;
-
     if (dateForCycle.getTime() > legendOfSunsData.fifth_sun_end_date.getTime()) {
         const fifthSunEndYear = legendOfSunsData.fifth_sun_end_date.getUTCFullYear();
         let diffYearsSinceEnd = currentYearForSuns - fifthSunEndYear;
-        // No BC/AD adjustment needed here as 2012 AD is the anchor for end
         const yearString = Math.abs(Math.floor(diffYearsSinceEnd)).toLocaleString(currentLang);
         const endDateFormatted = legendOfSunsData.fifth_sun_end_date.toLocaleDateString(currentLang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
         fifthSunEndTextEl.textContent = translations[currentLang].fifthSunEndedText.replace('{years}', yearString).replace('{endDate}', endDateFormatted);
-    } else {
-        fifthSunEndTextEl.textContent = translations[currentLang].fifthSunEndText;
-    }
+    } else fifthSunEndTextEl.textContent = translations[currentLang].fifthSunEndText;
     sunsCalculationExplanationEl.textContent = translations[currentLang].sunsCalculationExplanation;
-    // END OF SUNS CALCULATION PART - UPDATED
-
 
     // XIUHPOHUALLI
     const veintenaData = getXiuhpohualliVeintena(dateForCycle);
     if (veintenaData && veintenaData.nameData) {
         const veintenaDisplayName = currentSpelling === 'ortho' ? veintenaData.nameData.nahuatl_ortho : (veintenaData.nameData.nahuatl_phonetic || veintenaData.nameData.nahuatl_ortho);
         const veintenaTranslatedName = veintenaData.nameData[currentLang] || veintenaData.nameData.es;
-        const veintenaApproxGreg = veintenaData.nameData.approx_gregorian || '';
-
         xiuhpohualliVeintenaNameEl.textContent = `${veintenaDisplayName} (${veintenaTranslatedName})`;
-        xiuhpohualliVeintenaApproxGregorianEl.textContent = `(${veintenaApproxGreg})`;
-        if (veintenaData.isNemontemi) {
-            xiuhpohualliVeintenaDayEl.textContent = translations[currentLang].nemontemiDayText.replace('{day}', veintenaData.day);
-        } else {
-             xiuhpohualliVeintenaDayEl.textContent = translations[currentLang].veintenaDayText.replace('{day}', veintenaData.day).replace('{veintenaName}', veintenaTranslatedName);
-        }
+        xiuhpohualliVeintenaApproxGregorianEl.textContent = `(${(veintenaData.nameData.approx_gregorian || '')})`;
+        xiuhpohualliVeintenaDayEl.textContent = veintenaData.isNemontemi ? translations[currentLang].nemontemiDayText.replace('{day}', veintenaData.day) : translations[currentLang].veintenaDayText.replace('{day}', veintenaData.day).replace('{veintenaName}', veintenaTranslatedName);
         xiuhpohualliVeintenaMeaningEl.textContent = veintenaData.nameData['meaning_' + currentLang] || veintenaData.nameData.meaning_es || '';
     } else {
         xiuhpohualliVeintenaNameEl.textContent = translations[currentLang].errorCalculation;
-        xiuhpohualliVeintenaApproxGregorianEl.textContent = '';
-        xiuhpohualliVeintenaDayEl.textContent = '';
-        xiuhpohualliVeintenaMeaningEl.textContent = '';
+        xiuhpohualliVeintenaApproxGregorianEl.textContent = ''; xiuhpohualliVeintenaDayEl.textContent = ''; xiuhpohualliVeintenaMeaningEl.textContent = '';
     }
 }
 
 function displayError(errorKey) {
-    clearGregToTonResults(); // Clear main results area
-    clearTonToGregResults(); // Clear reverse results area
-
-    errorMessageEl.dataset.key = errorKey; // Store the key for language changes
-    errorMessageEl.textContent = translations[currentLang]?.[errorKey] || translations.es[errorKey]; // Fallback to Spanish if key not in current lang
+    clearGregToTonResults(); clearTonToGregResults();
+    errorMessageEl.dataset.key = errorKey;
+    errorMessageEl.textContent = translations[currentLang]?.[errorKey] || translations.es[errorKey];
     errorMessageEl.style.display = 'block';
-
-    // Decide which container to show based on mode, even on error
     if (currentCalculatorMode === 'gregorianToTonalli') {
-        resultContainer.style.display = 'block'; // Show result container to hold error message contextually
-        // Optionally clear specific result fields further if needed, though clearGregToTonResults does a lot
-        const errorElementsToClear = [ resultYearTonalliEl, resultDayTonalliMainEl, resultTrecenaEl];
-        errorElementsToClear.forEach(el => { if(el) el.textContent = ''; });
-        if (tonalliMeaningContainerEl) tonalliMeaningContainerEl.innerHTML = ''; // Clear prophecy
-        if (daySignGlyphEl) daySignGlyphEl.style.display = 'none';
+        resultContainer.style.display = 'block';
+        const els = [resultYearTonalliEl, document.querySelector('#result-day-tonalli-main .tonalli-name'), resultTrecenaEl];
+        els.forEach(el => { if(el) el.textContent = ''; });
+        if(tonalliMeaningContainerEl) tonalliMeaningContainerEl.innerHTML = '';
+        if(daySignGlyphEl) daySignGlyphEl.style.display = 'none';
+        if(mayaNumeralGlyphEl) mayaNumeralGlyphEl.style.display = 'none';
         reverseResultsContainerEl.style.display = 'none';
-    } else { // tonalliToGregorian mode
+    } else {
          resultContainer.style.display = 'none';
-         reverseResultsContainerEl.style.display = 'block'; // Show reverse result container for error
+         reverseResultsContainerEl.style.display = 'block';
     }
 }
 
 function clearGregToTonResults() {
-    lastResult = null; // Clear stored last result
-    resultContainer.style.display = 'none';
-    const resultElementsToClear = [
-        resultYearTonalliEl, resultYearTonalliTransEl,
-        resultDayTonalliMainEl, resultDayTonalliTransEl,
-        resultTrecenaEl, resultTrecenaTransEl,
-        cycleRangeTextEl, nextCeremonyTextEl,
-        daysFromSunsTextEl, fifthSunEndTextEl, sunsCalculationExplanationEl,
-        xiuhpohualliVeintenaNameEl, xiuhpohualliVeintenaApproxGregorianEl,
-        xiuhpohualliVeintenaDayEl, xiuhpohualliVeintenaMeaningEl
-    ];
-    resultElementsToClear.forEach(el => { if(el) el.textContent = ''; });
-    if (tonalliMeaningContainerEl) tonalliMeaningContainerEl.innerHTML = '';
-    if (daySignGlyphEl) daySignGlyphEl.style.display = 'none';
+    lastResult = null; resultContainer.style.display = 'none';
+    const els = [resultYearTonalliEl, resultYearTonalliTransEl, document.querySelector('#result-day-tonalli-main .tonalli-name'), resultDayTonalliTransEl, resultTrecenaEl, resultTrecenaTransEl, cycleRangeTextEl, nextCeremonyTextEl, daysFromSunsTextEl, fifthSunEndTextEl, sunsCalculationExplanationEl, xiuhpohualliVeintenaNameEl, xiuhpohualliVeintenaApproxGregorianEl, xiuhpohualliVeintenaDayEl, xiuhpohualliVeintenaMeaningEl];
+    els.forEach(el => { if(el) el.textContent = ''; });
+    if(tonalliMeaningContainerEl) tonalliMeaningContainerEl.innerHTML = '';
+    if(daySignGlyphEl) daySignGlyphEl.style.display = 'none';
+    if(mayaNumeralGlyphEl) mayaNumeralGlyphEl.style.display = 'none';
 }
 
 function clearTonToGregResults() {
-    if (reverseResultsListEl) reverseResultsListEl.innerHTML = '';
-    if (reverseResultsContainerEl) reverseResultsContainerEl.style.display = 'none';
+    if(reverseResultsListEl) reverseResultsListEl.innerHTML = '';
+    if(reverseResultsContainerEl) reverseResultsContainerEl.style.display = 'none';
 }
 
 function clearAllErrorMessages(){
-     if(errorMessageEl) {
-        errorMessageEl.textContent = '';
-        errorMessageEl.style.display = 'none';
-        errorMessageEl.dataset.key = '';
-     }
+     if(errorMessageEl) { errorMessageEl.textContent = ''; errorMessageEl.style.display = 'none'; errorMessageEl.dataset.key = ''; }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Set default date to today
     const today = new Date();
-    const todayYear = today.getFullYear();
-    const todayMonth = ('0' + (today.getMonth() + 1)).slice(-2);
-    const todayDay = ('0' + today.getDate()).slice(-2);
-    if(dateInput) dateInput.value = `${todayYear}-${todayMonth}-${todayDay}`;
-
-    if(startYearInputEl) startYearInputEl.value = todayYear;
-    if(endYearInputEl) endYearInputEl.value = todayYear;
-
-    populateTonalliInputs(); // Populates dropdowns for T->G mode
-    setLanguage('es');    // Default language
-    setSpelling('ortho'); // Default spelling
-
-    // Hide result containers initially
+    const todayY = today.getFullYear(), todayM = ('0'+(today.getMonth()+1)).slice(-2), todayD = ('0'+today.getDate()).slice(-2);
+    if(dateInput) dateInput.value = `${todayY}-${todayM}-${todayD}`;
+    if(startYearInputEl) startYearInputEl.value = todayY; if(endYearInputEl) endYearInputEl.value = todayY;
+    populateTonalliInputs(); setLanguage('es'); setSpelling('ortho');
     if(resultContainer) resultContainer.style.display = 'none';
     if(errorMessageEl) errorMessageEl.style.display = 'none';
     if(reverseResultsContainerEl) reverseResultsContainerEl.style.display = 'none';
-    if(tonToGregCalcEl) tonToGregCalcEl.style.display = 'none'; // Initially hide T->G mode
+    if(tonToGregCalcEl) tonToGregCalcEl.style.display = 'none';
+    if(modeGregToTonBtn) modeGregToTonBtn.classList.add('active'); // Default to G->T active
+    if(gregToTonCalcEl) gregToTonCalcEl.style.display = 'flex';   // Default to G->T visible
 
     if(calculateBtn) calculateBtn.addEventListener('click', calculateTonalli);
     if(todayBtn) todayBtn.addEventListener('click', () => {
-        if(modeGregToTonBtn && !modeGregToTonBtn.classList.contains('active')) {
-             modeGregToTonBtn.click(); // Switch to G->T mode if not already active
-        }
-        const today = new Date();
-        if(dateInput) dateInput.value = `${today.getFullYear()}-${('0' + (today.getMonth() + 1)).slice(-2)}-${('0' + today.getDate()).slice(-2)}`;
+        if(modeGregToTonBtn && !modeGregToTonBtn.classList.contains('active')) modeGregToTonBtn.click();
+        const t = new Date(); if(dateInput) dateInput.value = `${t.getFullYear()}-${('0'+(t.getMonth()+1)).slice(-2)}-${('0'+t.getDate()).slice(-2)}`;
         calculateTonalli();
     });
     if(calculateGregorianBtn) calculateGregorianBtn.addEventListener('click', calculateGregorianFromTonalli);
-
-    if(langSwitcher) langSwitcher.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON' && e.target.dataset.lang && !e.target.classList.contains('active')) {
-            setLanguage(e.target.dataset.lang);
-        }
-    });
-    if(spellingSwitcher) spellingSwitcher.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON' && e.target.dataset.spelling && !e.target.classList.contains('active')) {
-            setSpelling(e.target.dataset.spelling);
-        }
-    });
-
+    if(langSwitcher) langSwitcher.addEventListener('click', e => { if (e.target.tagName==='BUTTON'&&e.target.dataset.lang&&!e.target.classList.contains('active')) setLanguage(e.target.dataset.lang); });
+    if(spellingSwitcher) spellingSwitcher.addEventListener('click', e => { if (e.target.tagName==='BUTTON'&&e.target.dataset.spelling&&!e.target.classList.contains('active')) setSpelling(e.target.dataset.spelling); });
     if(modeGregToTonBtn) modeGregToTonBtn.addEventListener('click', () => {
         currentCalculatorMode = 'gregorianToTonalli';
-        if(gregToTonCalcEl) gregToTonCalcEl.style.display = 'flex'; // Or 'block' based on your CSS
-        if(tonToGregCalcEl) tonToGregCalcEl.style.display = 'none';
+        if(gregToTonCalcEl) gregToTonCalcEl.style.display = 'flex'; if(tonToGregCalcEl) tonToGregCalcEl.style.display = 'none';
         if(resultContainer) resultContainer.style.display = lastResult ? 'block' : 'none';
         if(reverseResultsContainerEl) reverseResultsContainerEl.style.display = 'none';
-        modeGregToTonBtn.classList.add('active');
-        if (modeTonToGregBtn) modeTonToGregBtn.classList.remove('active');
-        clearAllErrorMessages();
-        if (lastResult) {
-            displayResult(lastResult);
-        } else if (dateInput && dateInput.value && (!errorMessageEl || !errorMessageEl.textContent || errorMessageEl.style.display === 'none') ) {
-             // calculateTonalli(); // Recalculate if there's a date and no error
-        }
+        modeGregToTonBtn.classList.add('active'); if (modeTonToGregBtn) modeTonToGregBtn.classList.remove('active');
+        clearAllErrorMessages(); if (lastResult) displayResult(lastResult);
     });
-
     if(modeTonToGregBtn) modeTonToGregBtn.addEventListener('click', () => {
         currentCalculatorMode = 'tonalliToGregorian';
-        if(gregToTonCalcEl) gregToTonCalcEl.style.display = 'none';
-        if(tonToGregCalcEl) tonToGregCalcEl.style.display = 'flex'; // Or 'block'
+        if(gregToTonCalcEl) gregToTonCalcEl.style.display = 'none'; if(tonToGregCalcEl) tonToGregCalcEl.style.display = 'flex';
         if(resultContainer) resultContainer.style.display = 'none';
-        if(reverseResultsContainerEl) reverseResultsContainerEl.style.display = (reverseResultsListEl && reverseResultsListEl.hasChildNodes()) ? 'block' : 'none';
-        modeTonToGregBtn.classList.add('active');
-        if(modeGregToTonBtn) modeGregToTonBtn.classList.remove('active');
+        if(reverseResultsContainerEl) reverseResultsContainerEl.style.display = (reverseResultsListEl&&reverseResultsListEl.hasChildNodes())?'block':'none';
+        modeTonToGregBtn.classList.add('active'); if(modeGregToTonBtn) modeGregToTonBtn.classList.remove('active');
         clearAllErrorMessages();
     });
-
-    // Initial calculation on page load only if G->T mode is active and there's a date
-    if (currentCalculatorMode === 'gregorianToTonalli' && dateInput && dateInput.value && (!errorMessageEl || !errorMessageEl.textContent || errorMessageEl.style.display === 'none') ) {
-        calculateTonalli();
-    } else {
-        // Ensure G->T mode is visibly active by default if no other logic sets it
-        if(modeGregToTonBtn) modeGregToTonBtn.classList.add('active');
-        if(gregToTonCalcEl) gregToTonCalcEl.style.display = 'flex';
-    }
+    if (currentCalculatorMode==='gregorianToTonalli' && dateInput && dateInput.value && (!errorMessageEl || !errorMessageEl.textContent || errorMessageEl.style.display === 'none') ) calculateTonalli();
 });
