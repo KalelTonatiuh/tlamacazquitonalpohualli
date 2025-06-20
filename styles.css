@@ -170,3 +170,23 @@ input[type="date"] { padding: 10px; border: 1px solid #ccc; border-radius: 5px; 
     font-size: 0.9em;
     border-top: 1px solid #555;
 }
+
+/* styles.css */
+
+#result-trecena-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 5px;
+    min-height: 50px; /* Consistent height with day display */
+}
+
+/* .maya-numeral-image and .day-sign-image classes defined earlier will apply */
+
+#result-trecena { /* For the text part of the trecena */
+    font-size: 1.05em; /* Your existing style */
+    color: #555;
+    /* text-align: center; /* Flex will handle centering of the group */
+    line-height: 1.2;
+}
