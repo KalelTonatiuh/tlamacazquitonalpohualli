@@ -1,6 +1,5 @@
 // calculator.js
 
-// --- GLOBAL STATE & CONFIGURATION ---
 let currentLang = 'es';
 let currentSpelling = 'ortho';
 let lastResult = null;
@@ -124,9 +123,8 @@ const legendOfSunsData = {
     fifth_sun_end_date: new Date(Date.UTC(2012, 11, 21))
 };
 
-// --- XIUHPOHUALLI DATA (FULL) ---
 const xiuhpohualliData = {
-    anchorGregorianDate: new Date(Date.UTC(1922, 1, 26)), // Example: Feb 26, 1922
+    anchorGregorianDate: new Date(Date.UTC(1922, 1, 26)), 
     veintenas: [
         {
             nahuatl_ortho: "Atlcahualo", es: "Atlcahualo", en: "Atlcahualo",
@@ -210,8 +208,8 @@ const xiuhpohualliData = {
             nahuatl_ortho: "Quecholli", es: "Quecholli", en: "Quecholli",
             approx_gregorian: "ca. Nov 13–Dic 2",
             meaning_es: "Dedicado a Mixcoatl. Durante cuatro días se hacían flechas y dardos. Durante cinco días, la gente realizaba penitencia para la caza de venados, absteniéndose de ciertas actividades; los que no cumplían eran despojados de sus capas. Al final de los cuatro días de hacer flechas, hacían flechitas y las ataban en manojos de cuatro con cuatro antorchas, ofreciéndolas sobre las tumbas de los muertos con dos tamales; permanecían allí un día y se quemaban por la noche. El décimo día, mexicanos y tlatelolcas iban a los cerros Zacatepec. Al llegar, construían jacales de paja, hacían fogatas. Al día siguiente, desayunaban y salían al monte, formando un gran flanco para rodear venados, conejos y otros animales, acorralándolos y cazando. Se realizaban ceremonias con un hombre y una mujer que eran las imágenes del dios Mixcoatl y su esposa.",
-            meaning_en: "Dedicated to Mixcoatl. For four days, arrows and darts were made. For five days, people performed penance for deer hunting, abstaining from certain activities; those who did not comply had their capes taken. At the end of the four days of arrow-making, tiny arrows were made and tied in bundles of four with four torches, offered on the graves of the dead with two tamales; they remained there for a day and were burned at night. On the tenth day, Mexicans and Tlatelolcans went to the Zacatepec hills. Upon arrival, " +
-            "they built grass cabins (xacales) and made fires. The next day at dawn, they had breakfast and went into the bush, forming a large flank to surround deer, rabbits, and other animals, corralling and hunting them. Ceremonies were performed with a man and a woman who were the images of the god Mixcoatl and his wife."
+            meaning_en: "Dedicated to Mixcoatl. For four days, arrows and darts were made. For five days, people performed penance for deer hunting, abstaining from certain activities; those who did not comply had their capes taken. At the end of the four days of arrow-making, tiny arrows were made and tied in bundles of four with four torches, offered on the graves of the dead with two tamales; they remained there for a day and were burned at night. On the tenth day, Mexicans and Tlatelolcans went to the Zacatepec hills. Upon arrival, " + // CONCATENATION ADDED
+                        "they built grass cabins (xacales) and made fires. The next day at dawn, they had breakfast and went into the bush, forming a large flank to surround deer, rabbits, and other animals, corralling and hunting them. Ceremonies were performed with a man and a woman who were the images of the god Mixcoatl and his wife."
         },
         {
             nahuatl_ortho: "Panquetzaliztli", es: "Panquetzaliztli", en: "Panquetzaliztli",
@@ -245,6 +243,8 @@ const xiuhpohualliData = {
         meaning_en: "Five (or six in a leap year) days considered ill-fated and unlucky. Those born during them would have bad outcomes and be poor and miserable (men called Nenoquich, women Nencihuatl). Generally, nothing was done. They especially abstained from quarreling (omen of keeping that habit). Stumbling was a bad omen."
     }
 };
+// (The rest of calculator.js follows here: DOM Elements, Functions, DOMContentLoaded event listener)
+// ...
 
 // DOM Elements (Ensure these match your HTML IDs)
 const dateInput = document.getElementById('gregorian-date');
@@ -257,10 +257,7 @@ const resultDayTonalliMainEl = document.getElementById('result-day-tonalli-main'
 const daySignGlyphEl = document.getElementById('day-sign-glyph');
 const mayaNumeralGlyphEl = document.getElementById('maya-numeral-glyph');
 const resultDayTonalliTransEl = document.getElementById('result-day-tonalli-translations');
-const resultTrecenaMainEl = document.getElementById('result-trecena-main'); // Wrapper for Trecena glyphs and text
-const mayaNumeralTrecenaEl = document.getElementById('maya-numeral-trecena');
-const trecenaStartGlyphEl = document.getElementById('trecena-start-glyph');
-const resultTrecenaEl = document.getElementById('result-trecena'); // Text part of Trecena
+const resultTrecenaEl = document.getElementById('result-trecena');
 const resultTrecenaTransEl = document.getElementById('result-trecena-translations');
 const errorMessageEl = document.getElementById('error-message');
 const langSwitcher = document.getElementById('lang-switcher');
@@ -309,30 +306,16 @@ function getNewFireInfo(selectedDate) {
 function getXiuhpohualliVeintena(selectedDate) {
     const anchorDate = xiuhpohualliData.anchorGregorianDate;
     const msPerDay = 1000 * 60 * 60 * 24;
-    console.log("Xiuh: selectedDate", selectedDate);
-    if (!(selectedDate instanceof Date) || isNaN(selectedDate.getTime())) {
-         console.error("Xiuh: Invalid selectedDate in getXiuhpohualliVeintena:", selectedDate);
-         return null;
-    }
+    if (!(selectedDate instanceof Date) || isNaN(selectedDate.getTime())) { return null; }
     const diffTotalDays = Math.floor((selectedDate.getTime() - anchorDate.getTime()) / msPerDay);
     let dayInXiuhpohualliCycle = ((diffTotalDays % 365) + 365) % 365 + 1;
-    console.log("Xiuh: diffTotalDays", diffTotalDays);
-    console.log("Xiuh: dayInXiuhpohualliCycle", dayInXiuhpohualliCycle);
     if (dayInXiuhpohualliCycle <= 360) {
         const veintenaIndex = Math.floor((dayInXiuhpohualliCycle -1) / 20);
         const dayInVeintena = (dayInXiuhpohualliCycle -1) % 20 + 1;
-        console.log("Xiuh: veintenaIndex", veintenaIndex);
-        console.log("Xiuh: dayInVeintena", dayInVeintena);
         const veintenaInfo = xiuhpohualliData.veintenas[veintenaIndex];
-        if (!veintenaInfo) {
-            console.error("Xiuh: Veintena info not found for index:", veintenaIndex, "Total veintenas:", xiuhpohualliData.veintenas.length);
-            return null;
-        }
-        return { nameData: veintenaInfo, day: dayInVeintena, isNemontemi: false };
+        return veintenaInfo ? { nameData: veintenaInfo, day: dayInVeintena, isNemontemi: false } : null;
     } else {
-        const dayInNemontemi = dayInXiuhpohualliCycle - 360;
-        console.log("Xiuh: Nemontemi day", dayInNemontemi);
-        return { nameData: xiuhpohualliData.nemontemi, day: dayInNemontemi, isNemontemi: true };
+        return { nameData: xiuhpohualliData.nemontemi, day: dayInXiuhpohualliCycle - 360, isNemontemi: true };
     }
 }
 
@@ -488,34 +471,8 @@ function displayResult(result) {
 
     // TRECENA
     const trecenaSignData = sagradoTreceData.numberToSign[result.trecenaStartSignIndex];
-    if (trecenaSignData && sagradoTreceData.nahuatlNumbers[1]) {
-        resultTrecenaEl.textContent = `${translations[currentLang].trecenaText} ${sagradoTreceData.nahuatlNumbers[1]} ${currentSpelling === 'ortho' ? trecenaSignData.nahuatl_ortho : trecenaSignData.nahuatl_phonetic}`;
-        resultTrecenaTransEl.textContent = `(1 / Español: ${trecenaSignData.es} / English: ${trecenaSignData.en})`;
-
-        const trecenaGlyphPath = sagradoTreceData.signGlyphs[result.trecenaStartSignIndex];
-        if (trecenaGlyphPath && trecenaStartGlyphEl) {
-            trecenaStartGlyphEl.src = trecenaGlyphPath;
-            trecenaStartGlyphEl.alt = `Glifo ${trecenaSignData[currentLang] || trecenaSignData.es}`;
-            trecenaStartGlyphEl.style.display = 'inline-block';
-        } else if (trecenaStartGlyphEl) {
-            trecenaStartGlyphEl.style.display = 'none';
-        }
-
-        const mayaNumeralForTrecenaPath = sagradoTreceData.mayaNumeralGlyphs[1];
-        if (mayaNumeralForTrecenaPath && mayaNumeralTrecenaEl) {
-            mayaNumeralTrecenaEl.src = mayaNumeralForTrecenaPath;
-            mayaNumeralTrecenaEl.alt = "Número Maya 1";
-            mayaNumeralTrecenaEl.style.display = 'inline-block';
-        } else if (mayaNumeralTrecenaEl) {
-            mayaNumeralTrecenaEl.style.display = 'none';
-        }
-    } else {
-        resultTrecenaEl.textContent = 'Error';
-        resultTrecenaTransEl.textContent = '';
-        if (trecenaStartGlyphEl) trecenaStartGlyphEl.style.display = 'none';
-        if (mayaNumeralTrecenaEl) mayaNumeralTrecenaEl.style.display = 'none';
-    }
-    
+    resultTrecenaEl.textContent = (trecenaSignData && sagradoTreceData.nahuatlNumbers[1]) ? `${translations[currentLang].trecenaText} ${sagradoTreceData.nahuatlNumbers[1]} ${currentSpelling === 'ortho' ? trecenaSignData.nahuatl_ortho : trecenaSignData.nahuatl_phonetic}` : 'Error';
+    resultTrecenaTransEl.textContent = (trecenaSignData) ? `(1 / Español: ${trecenaSignData.es} / English: ${trecenaSignData.en})` : '';
 
     // MEANING DISPLAY
     const meaningKey = `${result.dayTrecena}_${result.dayVeintena}`;
@@ -568,7 +525,7 @@ function displayResult(result) {
     sunsCalculationExplanationEl.textContent = translations[currentLang].sunsCalculationExplanation;
 
     // XIUHPOHUALLI
-    console.log("Xiuh: veintenaData from function", veintenaData); // DEBUG (Keep or remove after testing)
+    const veintenaData = getXiuhpohualliVeintena(dateForCycle);
     if (veintenaData && veintenaData.nameData) {
         const veintenaDisplayName = currentSpelling === 'ortho' ? veintenaData.nameData.nahuatl_ortho : (veintenaData.nameData.nahuatl_phonetic || veintenaData.nameData.nahuatl_ortho);
         const veintenaTranslatedName = veintenaData.nameData[currentLang] || veintenaData.nameData.es;
@@ -577,7 +534,6 @@ function displayResult(result) {
         xiuhpohualliVeintenaDayEl.textContent = veintenaData.isNemontemi ? translations[currentLang].nemontemiDayText.replace('{day}', veintenaData.day) : translations[currentLang].veintenaDayText.replace('{day}', veintenaData.day).replace('{veintenaName}', veintenaTranslatedName);
         if(xiuhpohualliVeintenaMeaningEl) xiuhpohualliVeintenaMeaningEl.textContent = veintenaData.nameData['meaning_' + currentLang] || veintenaData.nameData.meaning_es || '';
     } else {
-        console.error("Xiuh: veintenaData or veintenaData.nameData is null/undefined in displayResult"); // DEBUG
         if(xiuhpohualliVeintenaNameEl) xiuhpohualliVeintenaNameEl.textContent = translations[currentLang].errorCalculation;
         if(xiuhpohualliVeintenaApproxGregorianEl) xiuhpohualliVeintenaApproxGregorianEl.textContent = ''; 
         if(xiuhpohualliVeintenaDayEl) xiuhpohualliVeintenaDayEl.textContent = ''; 
@@ -597,8 +553,6 @@ function displayError(errorKey) {
         if(tonalliMeaningContainerEl) tonalliMeaningContainerEl.innerHTML = '';
         if(daySignGlyphEl) daySignGlyphEl.style.display = 'none';
         if(mayaNumeralGlyphEl) mayaNumeralGlyphEl.style.display = 'none';
-        if(mayaNumeralTrecenaEl) mayaNumeralTrecenaEl.style.display = 'none';
-        if(trecenaStartGlyphEl) trecenaStartGlyphEl.style.display = 'none';
         reverseResultsContainerEl.style.display = 'none';
     } else {
          resultContainer.style.display = 'none';
@@ -613,8 +567,6 @@ function clearGregToTonResults() {
     if(tonalliMeaningContainerEl) tonalliMeaningContainerEl.innerHTML = '';
     if(daySignGlyphEl) daySignGlyphEl.style.display = 'none';
     if(mayaNumeralGlyphEl) mayaNumeralGlyphEl.style.display = 'none';
-    if(mayaNumeralTrecenaEl) mayaNumeralTrecenaEl.style.display = 'none';
-    if(trecenaStartGlyphEl) trecenaStartGlyphEl.style.display = 'none';
 }
 
 function clearTonToGregResults() {
