@@ -22,7 +22,6 @@
     </nav>
 
     <div class="main-content-area">
-     <div class="main-content-area">
 
         <!-- Anawa Wiki Banner -->
         <div style="text-align:center; padding: 0.5rem 1rem;">
@@ -35,13 +34,19 @@
         <div class="container">
             <h1 data-key="mainTitle">Calculadora de Tonalli</h1>
             <div class="controls">
-                <div id="lang-switcher" class="switcher">
-                    <button id="lang-es" data-lang="es">Español</button>
-                    <button id="lang-en" data-lang="en">English</button>
+                <div class="switcher-group">
+                    <span class="switcher-label">Idioma</span>
+                    <div id="lang-switcher" class="switcher">
+                        <button id="lang-es" data-lang="es">Español</button>
+                        <button id="lang-en" data-lang="en">English</button>
+                    </div>
                 </div>
-                <div id="spelling-switcher" class="switcher">
-                    <button id="spelling-ortho" data-spelling="ortho" data-key="spellingOrtho">Regular</button>
-                    <button id="spelling-phonetic" data-spelling="phonetic" data-key="spellingPhonetic">Fonética</button>
+                <div class="switcher-group">
+                    <span class="switcher-label">Ortografía</span>
+                    <div id="spelling-switcher" class="switcher">
+                        <button id="spelling-ortho" data-spelling="ortho" data-key="spellingOrtho">Regular</button>
+                        <button id="spelling-phonetic" data-spelling="phonetic" data-key="spellingPhonetic">Fonética</button>
+                    </div>
                 </div>
             </div>
             <div class="intro">
