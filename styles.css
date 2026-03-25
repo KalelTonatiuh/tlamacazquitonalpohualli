@@ -211,11 +211,11 @@ h1::after {
 h2 {
     font-family: var(--ff-heading);
     font-size: 1.05em;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     color: var(--gold-light);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-transform: none;
     margin-top: 24px;
     margin-bottom: 10px;
     padding-bottom: 8px;
@@ -225,13 +225,13 @@ h2 {
 h3 {
     font-family: var(--ff-heading);
     font-size: 0.88em;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ember);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    text-transform: none;
+    letter-spacing: 0.04em;
     margin-top: 14px;
     margin-bottom: 8px;
-    border-bottom: 1px dotted rgba(212,82,10,0.3);
+    border-bottom: 1px dotted rgba(212,82,10,0.2);
     padding-bottom: 4px;
 }
 
@@ -503,7 +503,13 @@ input[type="number"]:focus {
 }
 
 .maya-numeral-image { width: 28px; height: auto; }
-#day-sign-glyph { width: 40px; height: 40px; }
+#day-sign-glyph {
+    width: 40px;
+    height: 40px;
+    background-color: var(--parchment);
+    border-radius: 50%;
+    padding: 4px;
+}
 
 #result-day-tonalli-main .tonalli-name {
     font-family: var(--ff-display);
@@ -689,8 +695,9 @@ input[type="number"]:focus {
     position: absolute;
     left: 0;
     color: var(--ember);
-    font-size: 0.6em;
+    font-size: 0.5em;
     top: 10px;
+    opacity: 0.5;
 }
 .container section ul li strong { color: var(--gold-light); font-style: normal; }
 .container section ul ul {
